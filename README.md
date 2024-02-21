@@ -1,0 +1,2 @@
+# AlgoritmaStrukturData
+bismillah
