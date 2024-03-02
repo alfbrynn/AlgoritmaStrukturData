@@ -1,2 +1,2 @@
 # AlgoritmaStrukturData
-bismillah
+repo buat semester 2
