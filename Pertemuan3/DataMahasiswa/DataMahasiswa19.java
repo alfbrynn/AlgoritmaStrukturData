@@ -16,24 +16,24 @@ public class DataMahasiswa19 {
     }
 
     public void inputDataMahasiswa(Scanner sc, int i){
-        System.out.println("Masukkan nama: ");
+        System.out.print("Masukkan nama: ");
         nama[i] = sc.nextLine();
-        System.out.println("Masukkan nim: ");
+        System.out.print("Masukkan nim: ");
         nim[i] = sc.nextLine();
-        System.out.println("Masukkan jenis kelamin (L/P): ");
+        System.out.print("Masukkan jenis kelamin (L/P): ");
         jenisKelamin[i] = sc.nextLine().charAt(0);
-        System.out.println("Masukkan Ipk: ");
+        System.out.print("Masukkan Ipk: ");
         Ipk[i] = sc.nextDouble();
         sc.nextLine();
     }
 
     public void tampilDataMahasiswa(){
         for(int i = 0; i < nama.length; i++){
-            System.out.print("Data mahasiswa ke- " + (i + 1));
-            System.out.print("nama: " + nama[i]);
-            System.out.print("nim: " + nim[i]);
-            System.out.print("jenis kelamin: " + jenisKelamin[i]);
-            System.out.print("nilai IPK: " + Ipk[i]);
+            System.out.println("Data mahasiswa ke- " + (i + 1));
+            System.out.println("nama: " + nama[i]);
+            System.out.println("nim: " + nim[i]);
+            System.out.println("jenis kelamin: " + jenisKelamin[i]);
+            System.out.println("nilai IPK: " + Ipk[i]);
         }
     }
 }
