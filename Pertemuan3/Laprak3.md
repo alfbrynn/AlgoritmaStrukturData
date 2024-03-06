@@ -46,7 +46,7 @@ Pertanyaan
 1. Berdasarkan uji coba 3.2, apakah class yang akan dibuat array of object harus selalu memiliki 
 atribut dan sekaligus method?Jelaskan! tidak harus, kita dapat membuat array of object tanpa menambahkan method apapun pada class. misal kita memiliki class persegi panjang dengan atribut panjang dan lebar. kita dapat memuat array of object persegi panjang tanpa menambahkan method apapun pada class persegi panjang
 2. Apakah class PersegiPanjang memiliki konstruktor?Jika tidak, kenapa dilakukan pemanggilan 
-tidak, dengan tidak adanya konstruktor pada clas persegi panjang maka java aka compile secara otomatis membuat konstruktor default. pemanggilan konstruktor default class persegi panjang yaitu untuk membuat objek baru.
+tidak, dengan tidak adanya konstruktor pada clas persegi panjang maka java akan compile secara otomatis membuat konstruktor default. pemanggilan konstruktor default class persegi panjang yaitu untuk membuat objek baru.
 3. Apa yang dimaksud dengan kode berikut ini:
 mendeklarasikan dan menginialisasi array of object PersegiPanjang
 4. Apa yang dimaksud dengan kode berikut ini:
@@ -116,7 +116,49 @@ pertanyaan
 1. Apakah array of object dapat diimplementasikan pada array 2 Dimensi?
 iya, setiap elemen pada array 2 dimensi menjadi array of object itu sendiri
 2. Jika jawaban soal no satu iya, berikan contohnya! Jika tidak, jelaskan!
-contoh class mahasiswa adalah class yang digunakan untuk membuat objek mahasiswa dengan objek mahasiswa dengan atribut nama dan umur. kemudian dalam kelas main, array of object data mahasiswa diinisialisasi sebagai array 2 dimensi. setiap elemen dari array tersebut adalah onjek dari kelas mahasiswa. objek objek tersebut kemudia dikases dan informasinya dicetak menggunakan dua loop bersarang.
+contoh class mahasiswa adalah class yang digunakan untuk membuat objek mahasiswa dengan objek mahasiswa dengan atribut nama dan umur. kemudian dalam kelas main, array of object data mahasiswa diinisialisasi sebagai array 2 dimensi. setiap elemen dari array tersebut adalah onjek dari kelas mahasiswa. objek objek tersebut kemudian di akses dan informasinya dicetak menggunakan dua loop bersarang.
+```java
+public class Mahasiswa {
+    private String nama;
+    private int umur;
+
+    public Mahasiswa(String nama, int umur) {
+        this.nama = nama;
+        this.umur = umur;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public int getUmur() {
+        return umur;
+    }
+}
+```
+fungsi main
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Inisialisasi array 2 dimensi sebagai array of object Mahasiswa
+        Mahasiswa[][] dataMahasiswa = new Mahasiswa[2][2];
+        
+        // Inisialisasi objek Mahasiswa untuk setiap elemen array
+        dataMahasiswa[0][0] = new Mahasiswa("John", 20);
+        dataMahasiswa[0][1] = new Mahasiswa("Doe", 22);
+        dataMahasiswa[1][0] = new Mahasiswa("Alice", 21);
+        dataMahasiswa[1][1] = new Mahasiswa("Bob", 23);
+
+        // Akses dan cetak informasi mahasiswa menggunakan loop bersarang
+        for (int i = 0; i < dataMahasiswa.length; i++) {
+            for (int j = 0; j < dataMahasiswa[i].length; j++) {
+                Mahasiswa mahasiswa = dataMahasiswa[i][j];
+                System.out.println("Nama: " + mahasiswa.getNama() + ", Umur: " + mahasiswa.getUmur());
+            }
+        }
+    }
+}
+```
 3. Jika diketahui terdapat class Persegi yang memiliki atribut sisi bertipe integer, maka kode 
 dibawah ini akan memunculkan error saat dijalankan. Mengapa? ArrayIndexOutOfBoundsExecption. dalam kasus ini indeks yang digunakan berada diluar rentang indeks yang valid dari array.
 4. Modifikasi kode program pada praktikum 3.3 agar length array menjadi inputan dengan Scanner!
@@ -150,6 +192,8 @@ public class ArrayObjects19 {
             System.out.println("Persegi Panjang ke-1" + i);
             System.out.println("Panjang: " + ppArray[i].panjang + ", lebar: " + ppArray[i].lebar);
         }
+
+        // ini merupakan kode percobaan sebelumnya
         
         //ppArray[0] = new PersegiPanjang19();
         //ppArray[0].panjang = 110;
@@ -171,6 +215,7 @@ public class ArrayObjects19 {
 ```
 5. Apakah boleh Jika terjadi duplikasi instansiasi array of objek, misalkan saja instansiasi dilakukan 
 pada ppArray[i] sekaligus ppArray[0]?Jelaskan !
+tidak diperbolehkan karena akan menyebabkan beberapa  masalah ketidakkonsistenan data, pemborosan dan kesalahan logika.
 
 percobaan 3
 ArrayBalok
@@ -633,3 +678,5 @@ nim: 8765398
 jenis kelamin: L
 nilai IPK: 3.8
 ```
+
+terima kasih

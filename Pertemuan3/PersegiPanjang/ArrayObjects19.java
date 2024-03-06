@@ -11,16 +11,16 @@ public class ArrayObjects19 {
         PersegiPanjang19[] ppArray = new PersegiPanjang19[jumlah];
 
         for(int i = 0; i < jumlah; i++){
-            ppArray[i] = new PersegiPanjang19();
+            //ppArray[i] = new PersegiPanjang19();
             System.out.println("Persegi panjang ke-" + i);
             System.out.print("Masukkan panjang: ");
-            ppArray[i].panjang = sc.nextInt();
-            //int panjang = sc.nextInt();
+            //ppArray[i].panjang = sc.nextInt();
+            int panjang = sc.nextInt();
             System.out.print("Masukkan lebar: ");
-            ppArray[i].lebar = sc.nextInt();
-            //int lebar = sc.nextInt();
+            //ppArray[i].lebar = sc.nextInt();
+            int lebar = sc.nextInt();
 
-            //ppArray[i] = new PersegiPanjang19(panjang, lebar);
+            ppArray[i] = new PersegiPanjang19(panjang, lebar);
         }
 
         for(int i = 0; jumlah < 3; i++){
