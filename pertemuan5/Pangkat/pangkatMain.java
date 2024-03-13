@@ -23,13 +23,13 @@ public class pangkatMain{
     System.out.println("HASIL - BRUTE FORCE");
     for(int i = 0; i < elemen; i++){
         System.out.println
-        ("Hasil dari " + png[i].nilai + "pangkat " + png[i].pangkat + "adalah " + png[i].pangkatBF(png[i].nilai, png[i].pangkat));
+        ("Hasil dari " + png[i].nilai + " pangkat " + png[i].pangkat + " adalah " + png[i].pangkatBF(png[i].nilai, png[i].pangkat));
     }
 
     System.out.println("HASIL - DIVIDE CONQUER");
     for(int i = 0; i < elemen; i++){
         System.out.println
-        ("Hasil dari " + png[i].nilai+ "pangkat "+ png[i].pangkat+ "adalah " + png[i].pangkatDC(png[i].nilai, png[i].pangkat));
+        ("Hasil dari " + png[i].nilai+ " pangkat "+ png[i].pangkat+ " adalah " + png[i].pangkatDC(png[i].nilai, png[i].pangkat));
     }
     }
 }
