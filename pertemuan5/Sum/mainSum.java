@@ -7,9 +7,9 @@ public class mainSum{
         System.out.println("================================================");
         System.out.println("Program menghitung keuntungan total (satuan juta, misal 5,9)");
         System.out.println("Masukkan jumlah bulan: ");
-        int elm = sc19.nextInt();
+        int elemen = sc19.nextInt();
 
-        sum sm = new sum(elm);
+        sum sm = new sum(elemen);
         System.out.println("==================================================");
         for(int i = 0; i < sm.elemen; i++){
             System.out.println("Masukkan untung bulan ke- "+(i+1)+" = ");
