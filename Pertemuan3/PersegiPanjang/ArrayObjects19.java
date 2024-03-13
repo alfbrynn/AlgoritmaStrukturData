@@ -23,7 +23,7 @@ public class ArrayObjects19 {
             ppArray[i] = new PersegiPanjang19(panjang, lebar);
         }
 
-        for(int i = 0; jumlah < 3; i++){
+        for(int i = 0; i < jumlah; i++){
             System.out.println("Persegi Panjang ke-1" + i);
             System.out.println("Panjang: " + ppArray[i].panjang + ", lebar: " + ppArray[i].lebar);
         }
