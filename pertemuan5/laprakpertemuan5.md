@@ -200,5 +200,25 @@ metode ini adalah membagi pangkat menjadi dua bagian, kemudian menghitung pangka
 tidak, tahap combine seharusnya terjadi saat hasil perhitungan dari submasalah dikombinasikan untuk memberikan hasil akhir. dalam kode tersebut hasil perhitungan untk setiap submasalah dikembalikan secara langsung tanpa ada tahap kombinasi.
 3. Modifikasi kode program tersebut, anggap proses pengisian atribut dilakukan dengan 
 konstruktor.
+pertama kita harus menambahkan konstruktor pada class pangkat
+```java
+   public pangkat(int nilai, int pangkat){
+        this.nilai = nilai;
+        this.pangkat = pangkat;
+    }
+```
+kemudian panggil konstruktor pada class pangkat melalui class pangkatmMain menggunakan kode berikut
+```java
+    for(int i = 0; i < elemen; i++){
+        //png[i] = new pangkat();
+        System.out.println("Masukkan nilai yang hendak dipangkatkan: ");
+        int nilai = sc19.nextInt();
+        //png[i].nilai = nilai;
+        System.out.println("Masukkan nilai pemangkat: ");
+        int pangkat = sc19.nextInt();
+        //png[i].pangkat = pangkat;
+        png[i] = new pangkat(nilai, pangkat);
+    }
+```
 4. Tambahkan menu agar salah satu method yang terpilih saja yang akan dijalankan menggunakan 
 switch-case!
