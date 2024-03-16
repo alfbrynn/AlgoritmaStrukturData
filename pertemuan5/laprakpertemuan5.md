@@ -222,3 +222,119 @@ kemudian panggil konstruktor pada class pangkat melalui class pangkatmMain mengg
 ```
 4. Tambahkan menu agar salah satu method yang terpilih saja yang akan dijalankan menggunakan 
 switch-case!
+```java
+package pertemuan5.Pangkat;
+import java.util.Scanner;
+
+public class pangkatMain{
+    public static void main(String[] args) {
+        Scanner sc19 = new Scanner(System.in);
+        System.out.println("==============");
+        System.out.println("Masukkan jumlah elemen yang dihitung: ");
+        int elemen = sc19.nextInt();
+    
+
+    pangkat[] png = new pangkat[elemen];
+    for(int i = 0; i < elemen; i++){
+        //png[i] = new pangkat();
+        System.out.println("Masukkan nilai yang hendak dipangkatkan: ");
+        int nilai = sc19.nextInt();
+        //png[i].nilai = nilai;
+        System.out.println("Masukkan nilai pemangkat: ");
+        int pangkat = sc19.nextInt();
+        //png[i].pangkat = pangkat;
+        png[i] = new pangkat(nilai, pangkat);
+    }
+
+    System.out.println("Pilih metode perhitungan yang ingin digunakan: ");
+    System.out.println("1. Brute Force");
+    System.out.println("2. Divide Qonquer");
+    int pilihan = sc19.nextInt();
+
+    switch(pilihan) {
+        case 1:
+            System.out.println("HASIL - BRUTE FORCE");
+            for(int i = 0; i < elemen; i++){
+            System.out.println
+            ("Hasil dari " + png[i].nilai + " pangkat " + png[i].pangkat + " adalah " + png[i].pangkatBF(png[i].nilai, png[i].pangkat));
+            }
+            break;
+        case 2:
+            System.out.println("HASIL - DIVIDE CONQUER");
+            for(int i = 0; i < elemen; i++){
+            System.out.println
+            ("Hasil dari " + png[i].nilai+ " pangkat "+ png[i].pangkat+ " adalah " + png[i].pangkatDC(png[i].nilai, png[i].pangkat));
+            }
+            break;
+        default:
+            System.out.println("Pilihan tidak valid");
+        }
+    }
+}
+```
+
+percobaan 3
+menghitung sum array dengan algoritma brute force dan divide conquer
+dalam percobaan ini, kita akan mempraktekkan bagaimana proses divide, conquer, dan combine diterapkan pada studi kasus penjumlahan kuntungan suatu perusahaan dalam beebrapa bulan.
+class sum
+```java
+package pertemuan5.Sum;
+public class sum{
+    int elemen;
+    double keuntungan[], total;
+
+    sum(int elemen){
+        this.elemen = elemen;
+        this.keuntungan = new double[elemen];
+        this.total = 0;
+    }
+
+    double totalBF(double arr[]){
+        for(int i = 0; i < elemen; i++){
+            total = total + arr[i];
+        }
+        return total;
+    }
+
+    double totalDC(double arr[], int l, int r){
+        if(l==r){
+            return arr[l];
+        } else if(l < r){
+            int mid = (l+r)/2;
+            double lsum = totalDC(arr, l, mid-1);
+            double rsum = totalDC(arr, mid+1, r);
+            return lsum+rsum+arr[mid];
+        }
+        return 0;
+    }
+}
+```
+class sum main
+```java
+package pertemuan5.Sum;
+import java.util.Scanner;
+
+public class mainSum{
+    public static void main(String[] args) {
+        Scanner sc19 = new Scanner(System.in);
+        System.out.println("================================================");
+        System.out.println("Program menghitung keuntungan total (satuan juta, misal 5,9)");
+        System.out.println("Masukkan jumlah bulan: ");
+        int elemen = sc19.nextInt();
+
+        sum sm = new sum(elemen);
+        System.out.println("==================================================");
+        for(int i = 0; i < sm.elemen; i++){
+            System.out.println("Masukkan untung bulan ke- "+(i+1)+" = ");
+            sm.keuntungan[i] = sc19.nextDouble();
+        }
+        System.out.println("==================================================");
+        System.out.println("Algoritma Brute Force");
+        System.out.println("Total keuntungan perusahaan selama " + sm.elemen + " bulan adalah = "+sm.totalBF(sm.keuntungan));
+        System.out.println("==================================================");
+        System.out.println("Algoritma Divide Conquer");
+        System.out.println("Total keuntungan selama " + sm.elemen + " bulan adalah = "+sm.totalDC(sm.keuntungan, 0, sm.elemen-1));
+    }
+}
+```
+contoh output
