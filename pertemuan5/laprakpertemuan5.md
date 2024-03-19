@@ -338,3 +338,34 @@ public class mainSum{
 }
 ```
 contoh output
+```
+================================================
+Program menghitung keuntungan total (satuan juta, misal 5,9)   
+Masukkan jumlah bulan:
+5
+==================================================
+Masukkan untung bulan ke- 1 = 
+8,5
+Masukkan untung bulan ke- 2 =
+9,54
+Masukkan untung bulan ke- 3 =
+7,2
+Masukkan untung bulan ke- 4 =
+9,1
+Masukkan untung bulan ke- 5 =
+6
+==================================================
+Algoritma Brute Force
+Total keuntungan perusahaan selama 5 bulan adalah = 40.339999999999996
+==================================================
+Algoritma Divide Conquer
+Total keuntungan selama 5 bulan adalah = 40.34
+```
+pertanyaan
+1. Mengapa terdapat formulasi return value berikut?Jelaskan!
+formulasi return lsum+rsum+arr[mid] pada method totalDC digunakan untk menggabungkan hasil perhitungan keuntungan dari sub masalah kiri(lsum), sub masalah kanan(rsum), dan sub masalah di bulan tengah keuntungan(arr[mid])
+2. 2. Kenapa dibutuhkan variable mid pada method TotalDC()? untuk membagi rentang data keuntungan menjadi dua bagian sama besar
+3. Program perhitungan keuntungan suatu perusahaan ini hanya untuk satu perusahaan saja. 
+Bagaimana cara menghitung sekaligus keuntungan beberapa bulan untuk beberapa 
+perusahaan.(Setiap perusahaan bisa saja memiliki jumlah bulan berbeda-beda)? Buktikan 
+dengan program!
