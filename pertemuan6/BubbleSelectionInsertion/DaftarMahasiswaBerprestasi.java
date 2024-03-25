@@ -52,4 +52,17 @@ public class DaftarMahasiswaBerprestasi {
             listMhs[i] = tmp;
         }
     }
+
+    // method insertionSort (percobaan 3 mengunakan sorting insertion secara ascending)
+    void insertionSort(){
+        for(int i=1; i<listMhs.length; i++){
+            Mahasiswa tmp = listMhs[i];
+            int j = i;
+            while (j>0 && listMhs[j-1].ipk>tmp.ipk){
+                listMhs[j] = listMhs[j-1];
+                j--;
+            }
+            listMhs[j] = tmp;
+        }
+    }
 }

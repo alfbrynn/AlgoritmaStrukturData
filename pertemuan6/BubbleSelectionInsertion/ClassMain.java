@@ -27,5 +27,10 @@ public class ClassMain{
         System.out.println("Data mahasiswa setelah sorting asc berdasarkan ipk");
         list.selectionSort();
         list.tampil();
+
+        // memanggil method insertionSort secara ascending (percobaan 3)
+        System.out.println("Data mahasiswa setelah sorting asc berdasarkan ipk");
+        list.insertionSort();
+        list.tampil();
     }
 }

@@ -99,6 +99,7 @@ public class ClassMain{
 }
 ```
 contoh output
+```
 Data mahasiswa sebelum sorting = 
 Nama = Nusa
 Tahun masuk: 2017
@@ -213,3 +214,123 @@ public class DaftarMahasiswaBerprestasi {
     }
 }
 ```
+class main memanggil method selectionSort
+```java
+package pertemuan6.BubbleSelectionInsertion;
+//import java.util.Scanner;
+
+public class ClassMain{
+    public static void main(String[] args) {
+        DaftarMahasiswaBerprestasi list = new DaftarMahasiswaBerprestasi();
+        Mahasiswa m1 = new Mahasiswa("Nusa", 2017, 25, 3);
+        Mahasiswa m2 = new Mahasiswa("Rara", 2012, 19, 4);
+        Mahasiswa m3 = new Mahasiswa("Donpu", 2018, 19, 3.5);
+        Mahasiswa m4 = new Mahasiswa("Abdul", 2017, 23, 2);
+        Mahasiswa m5 = new Mahasiswa("Ummi", 2019, 21, 3.75);
+
+        list.tambah(m1);
+        list.tambah(m2);
+        list.tambah(m3);
+        list.tambah(m4);
+        list.tambah(m5);
+
+        System.out.println("Data mahasiswa sebelum sorting = ");
+        list.tampil();
+
+        System.out.println("Data mahasiswa stelah sorting desc berdasarkan ipk");
+        list.bubbleSort();
+        list.tampil();
+
+        // memanggil method selectionSort (percobaan 2)
+        System.out.println("Data mahasiswa setelah sorting asc berdasarkan ipk");
+        list.selectionSort();
+        list.tampil();
+    }
+}
+```
+contoh output
+```
+Data mahasiswa sebelum sorting = 
+Nama = Nusa
+Tahun masuk: 2017
+Umur = 25
+IPK = 3.0
+--------------------
+Nama = Rara
+Tahun masuk: 2012
+Umur = 19
+IPK = 4.0
+--------------------
+Nama = Donpu
+Tahun masuk: 2018
+Umur = 19
+IPK = 3.5
+--------------------
+Nama = Abdul
+Tahun masuk: 2017
+Umur = 23
+IPK = 2.0
+--------------------
+Nama = Ummi
+Tahun masuk: 2019
+Umur = 21
+IPK = 3.75
+--------------------
+Data mahasiswa stelah sorting desc berdasarkan ipk
+Nama = Rara
+Tahun masuk: 2012
+Umur = 19
+IPK = 4.0
+--------------------
+Nama = Ummi
+Tahun masuk: 2019
+Umur = 21
+IPK = 3.75
+--------------------
+Nama = Donpu
+Tahun masuk: 2018
+Umur = 19
+IPK = 3.5
+--------------------
+Nama = Nusa
+Tahun masuk: 2017
+Umur = 25
+IPK = 3.0
+--------------------
+Nama = Abdul
+Tahun masuk: 2017
+Umur = 23
+IPK = 2.0
+--------------------
+Data mahasiswa setelah sorting asc berdasarkan ipk
+Nama = Abdul
+Tahun masuk: 2017
+Umur = 23
+IPK = 2.0
+--------------------
+Nama = Nusa
+Tahun masuk: 2017
+Umur = 25
+IPK = 3.0
+--------------------
+Nama = Donpu
+Tahun masuk: 2018
+Umur = 19
+IPK = 3.5
+--------------------
+Nama = Ummi
+Tahun masuk: 2019
+Umur = 21
+IPK = 3.75
+--------------------
+Nama = Rara
+Tahun masuk: 2012
+Umur = 19
+IPK = 4.0
+--------------------
+```
+
+pertanyaan
+
+percobaan 3 membuat method insertionSort untuk melakukan sorting secara ascending
+```java
