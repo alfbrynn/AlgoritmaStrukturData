@@ -369,3 +369,259 @@ formulasi return lsum+rsum+arr[mid] pada method totalDC digunakan untk menggabun
 Bagaimana cara menghitung sekaligus keuntungan beberapa bulan untuk beberapa 
 perusahaan.(Setiap perusahaan bisa saja memiliki jumlah bulan berbeda-beda)? Buktikan 
 dengan program!
+Package sumPerusahaan
+class sumKeuntungan
+```java
+package pertemuan5.sumPerusahaan;
+
+public class sumKeuntungan{
+    int jumlahPerusahaan;
+    sumPerusahaan[] perusahaan;
+
+    public sumKeuntungan(int jumlahPerusahaan){
+        this.jumlahPerusahaan = jumlahPerusahaan;
+        this.perusahaan = new sumPerusahaan[jumlahPerusahaan];
+    }
+
+    double totalBF(double[][] arr){
+        double total = 0;
+        for(int i = 0; i < arr.length; i++){
+            for(int j = 0; j < arr[i].length; j++){
+                total += arr[i][j];
+            }
+        }
+        return total;
+    }
+
+    double totalDC(double[][] arr, int l, int r){
+        if (l == r) {
+            return arr [l][0];
+        } else if (l < r){
+            int mid = (l + r) / 2;
+            double lsum = totalDC(arr, l, mid - 1);
+            double rsum = totalDC(arr, mid + 1, r);
+            return lsum + rsum + arr[mid][0];
+        }
+        return 0;
+    }
+}
+```
+class sumPerusahaan
+```java
+package pertemuan5.sumPerusahaan;
+public class sumPerusahaan{
+    int elemen;
+    double[] keuntungan;
+
+    public sumPerusahaan(int elemen){
+        this.elemen = elemen;
+        this.keuntungan = new double[elemen];
+    }
+}
+```
+class Main
+```java
+package pertemuan5.sumPerusahaan;
+import java.util.Scanner;
+public class sumPerusahaanMain {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Masukkan jumlah perusahaan: ");
+        int jumlahPerusahaan = scanner.nextInt();
+
+        sumKeuntungan sumKeuntungan = new sumKeuntungan(jumlahPerusahaan);
+        
+        for (int i = 0; i < jumlahPerusahaan; i++) {
+            System.out.println("Perusahaan ke-" + (i + 1));
+            System.out.println("Masukkan jumlah bulan: ");
+            int elemen = scanner.nextInt();
+            sumKeuntungan.perusahaan[i] = new sumPerusahaan(elemen);
+
+            for (int j = 0; j < elemen; j++) {
+                System.out.println("Masukkan untung bulan ke-" + (j + 1) + " (dalam juta (contoh 3,5)): ");
+                sumKeuntungan.perusahaan[i].keuntungan[j] = scanner.nextDouble();
+            }
+        }
+
+        System.out.println("==================================================");
+        System.out.println("Algoritma Brute Force");
+        double[][] keuntunganBF = new double[jumlahPerusahaan][];
+        for (int i = 0; i < jumlahPerusahaan; i++) {
+            keuntunganBF[i] = sumKeuntungan.perusahaan[i].keuntungan;
+        }
+        System.out.println("Total keuntungan semua perusahaan dengan metode Brute Force: "
+                + sumKeuntungan.totalBF(keuntunganBF));
+        System.out.println("==================================================");
+
+        System.out.println("Algoritma Divide Conquer");
+        double[][] keuntunganDC = new double[jumlahPerusahaan][];
+        for (int i = 0; i < jumlahPerusahaan; i++) {
+            keuntunganDC[i] = sumKeuntungan.perusahaan[i].keuntungan;
+        }
+        System.out.println("Total keuntungan semua perusahaan dengan metode Divide Conquer: "
+                + sumKeuntungan.totalDC(keuntunganDC, 0, jumlahPerusahaan - 1));
+        System.out.println("==================================================");
+
+        scanner.close();
+    }
+}
+```
+contoh output
+```
+Masukkan jumlah perusahaan: 
+2
+Perusahaan ke-1
+Masukkan jumlah bulan:
+4
+Masukkan untung bulan ke-1 (dalam juta (contoh 3,5)):
+6,5
+Masukkan untung bulan ke-2 (dalam juta (contoh 3,5)):
+7,8
+Masukkan untung bulan ke-3 (dalam juta (contoh 3,5)):
+9,7
+Masukkan untung bulan ke-4 (dalam juta (contoh 3,5)):
+6
+Perusahaan ke-2
+Masukkan jumlah bulan:
+2
+Masukkan untung bulan ke-1 (dalam juta (contoh 3,5)):
+6
+Masukkan untung bulan ke-2 (dalam juta (contoh 3,5)):
+5,7
+==================================================
+Algoritma Brute Force
+Total keuntungan semua perusahaan dengan metode Brute Force: 41.7
+==================================================
+Algoritma Divide Conquer
+Total keuntungan semua perusahaan dengan metode Divide Conquer: 12.5
+==================================================
+```
+
+Latihan Praktikum
+membuat showroom daftar mobil dan tentukan
+a) top_acceleration tertinggi menggunakan Divide and Conquer!
+b) top_acceleration terendah menggunakan Divide and Conquer!
+c) Rata-rata top_power dari seluruh mobil menggunakan Brute Force!
+
+class showroomMobil
+```java
+package pertemuan5.LatihanPraktikum;
+
+import javax.print.DocFlavor.STRING;
+
+public class showroomMobil{
+    private String merk;
+    private String tipe;
+    private int tahun;
+    private int topAcceleration;
+    private int topPower;
+
+    public showroomMobil(String merk, String tipe, int tahun, int topAcceleration, int topPower){
+        this.merk = merk;
+        this.tipe = tipe;
+        this.tahun = tahun;
+        this.topAcceleration = topAcceleration;
+        this.topPower = topPower;
+    }    
+
+    public String getMerk(){
+        return merk;
+    }
+
+    public void setMerk(String merk){
+        this.merk = merk;
+    }
+
+    public int getTopAcceleration(){
+        return topAcceleration;
+    }
+
+    public void setTopAcceleration(int topAcceleration){
+        this.topAcceleration = topAcceleration;
+    }
+
+    public int getTopPower(){
+        return topPower;
+    }
+
+    public void setTopPower(int topPower){
+        this.topPower = topPower;
+    }
+
+    public String toString(){
+        return "Mobil{" +
+        "merk='" + merk + '\'' +
+        ", tipe='" + tipe + '\'' +
+        ", tahun=" + tahun +
+        ", topAcceleration=" + topAcceleration +
+        ", topPower=" + topPower +
+        '}';
+    }
+}
+```
+class main
+``` java
+package pertemuan5.LatihanPraktikum;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        List<showroomMobil> mobilList = new ArrayList<>();
+
+        mobilList.add(new showroomMobil("BMW", "M2 Coupe", 2016, 6816, 728));
+        mobilList.add(new showroomMobil("Ford", "Fiesta ST", 2014, 3921, 575));
+        mobilList.add(new showroomMobil("Nissan", "370Z", 2009, 4360, 657));
+        mobilList.add(new showroomMobil("Subaru", "BRZ", 2014, 4058, 609));
+        mobilList.add(new showroomMobil("Subaru", "Impreza WRX STI", 2013, 6255, 703));
+        mobilList.add(new showroomMobil("Toyota", "AE86 Trueno", 1986, 3700, 553));
+        mobilList.add(new showroomMobil("Toyota", "86/GT86", 2014, 4180, 609));
+        mobilList.add(new showroomMobil("Volkswagen", "Golf GTI", 2014, 4180, 631));
+
+        // Mencari top acceleration tertinggi menggunakan Divide and Conquer
+        int topAccelerationTertinggi = findTopAccelerationTertinggi(mobilList);
+        System.out.println("Top acceleration tertinggi: " + topAccelerationTertinggi);
+
+        // Mencari top acceleration terendah menggunakan Divide and Conquer
+        int topAccelerationTerendah = findTopAccelerationTerendah(mobilList);
+        System.out.println("Top acceleration terendah: " + topAccelerationTerendah);
+
+        // Mencari rata-rata top power menggunakan Brute Force
+        int rataRataTopPower = findRataRataTopPower(mobilList);
+        System.out.println("Rata-rata top power: " + rataRataTopPower);
+    }
+
+    private static int findTopAccelerationTertinggi(List<showroomMobil> mobilList) {
+        if (mobilList.size() == 1) {
+            return mobilList.get(0).getTopAcceleration();
+        }
+
+        int mid = mobilList.size() / 2;
+        int kiri = findTopAccelerationTertinggi(mobilList.subList(0, mid));
+        int kanan = findTopAccelerationTertinggi(mobilList.subList(mid, mobilList.size()));
+        
+        return Math.max(kiri, kanan);
+    }
+
+    private static int findTopAccelerationTerendah(List<showroomMobil> mobilList) {
+        if (mobilList.size() == 1) {
+            return mobilList.get(0).getTopAcceleration();
+        }
+
+        int mid = mobilList.size() / 2;
+        int kiri = findTopAccelerationTerendah(mobilList.subList(0, mid));
+        int kanan = findTopAccelerationTerendah(mobilList.subList(mid, mobilList.size()));
+        
+        return Math.min(kiri, kanan);
+    }
+
+    private static int findRataRataTopPower(List<showroomMobil> mobilList) {
+        int totalPower = 0;
+        for (showroomMobil mobil : mobilList) {
+            totalPower += mobil.getTopPower();
+        }
+        return totalPower / mobilList.size();
+    }
+}
+```
