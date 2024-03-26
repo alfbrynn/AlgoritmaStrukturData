@@ -159,7 +159,7 @@ pertanyaan
 berada di method bubbleSort()
 2. Di dalam method bubbleSort(), terdapat baris program seperti di bawah ini:
 untuk apa proses tersebut?
-Proses penukaran dalam bubble sort bertujuan untuk memindahkan elemen yang lebih besar
+if untuk membandingkan nilai IPK, jika IPK pada indeks j lebih besar dari IPK mahasiswa pada indeks j-1, artinya urutan mahasiswa saat ini tidak sesuai dengan urutan yang diinginkan. pertukaran disimpan di tmp, lalu memindahkan mahasiswa pada indeks j-1 ke indeks j dan mahasiswa tmp dipindahkan ke indeks j-1. 
 3. Perhatikan perulangan di dalam bubbleSort() di bawah ini:
 a. Apakah perbedaan antara kegunaan perulangan i dan perulangan j?
 perulangan i: mengontrol interasi keseluruhan bubble sort, dimulai dari indeks 0 dan berakhir pada indeks n-1
@@ -349,8 +349,7 @@ IPK = 4.0
 
 pertanyaan
 di dalam method selecion sort, terdapat baris program seperti di bawah ini:
-
-
+idxMin digunakan untuk menyimpan indeks dari elemen dengan nilai terkecil. loop for digunakan untuk mencari elemen dengan nilai terkecil dimulai dari indeks i+1 dalam rentang nilaiMhs. if ini memeriksa apakah nilai IPK daei elemen pada indeks j lebih kecil dari nilai IPK dari elemen pada idxMin. idxMin = j, jika IPK dari elemen pada indeks j lebih kecil dari IPK pada elemen idxMin, maka nilai idxMin akan diperbarui dengan nilai j.
 
 percobaan 3 membuat method insertionSort untuk melakukan sorting secara ascending
 ```java
@@ -367,11 +366,273 @@ percobaan 3 membuat method insertionSort untuk melakukan sorting secara ascendin
         }
     }
 ```
-
+cuplikan kode untuk memanggil method insertionsort pada main class
+``` java
+// memanggil method insertionSort secara ascending (percobaan 3)
+        System.out.println("Data mahasiswa setelah sorting asc berdasarkan ipk");
+        list.insertionSort();
+        list.tampil();
+```
+contoh output
+```Data mahasiswa sebelum sorting = 
+Nama = Nusa
+Tahun masuk: 2017
+Umur = 25
+IPK = 3.0
+--------------------
+Nama = Rara
+Tahun masuk: 2012
+Umur = 19
+IPK = 4.0
+--------------------
+Nama = Donpu
+Tahun masuk: 2018
+Umur = 19
+IPK = 3.5
+--------------------
+Nama = Abdul
+Tahun masuk: 2017
+Umur = 23
+IPK = 2.0
+--------------------
+Nama = Ummi
+Tahun masuk: 2019
+Umur = 21
+IPK = 3.75
+--------------------
+Data mahasiswa stelah sorting desc berdasarkan ipk
+Nama = Rara
+Tahun masuk: 2012
+Umur = 19
+IPK = 4.0
+--------------------
+Nama = Ummi
+Tahun masuk: 2019
+Umur = 21
+IPK = 3.75
+--------------------
+Nama = Donpu
+Tahun masuk: 2018
+Umur = 19
+IPK = 3.5
+--------------------
+Nama = Nusa
+Tahun masuk: 2017
+Umur = 25
+IPK = 3.0
+--------------------
+Nama = Abdul
+Tahun masuk: 2017
+Umur = 23
+IPK = 2.0
+--------------------
+Data mahasiswa setelah sorting asc berdasarkan ipk
+Nama = Abdul
+Tahun masuk: 2017
+Umur = 23
+IPK = 2.0
+--------------------
+Nama = Nusa
+Tahun masuk: 2017
+Umur = 25
+IPK = 3.0
+--------------------
+Nama = Donpu
+Tahun masuk: 2018
+Umur = 19
+IPK = 3.5
+--------------------
+Nama = Ummi
+Tahun masuk: 2019
+Umur = 21
+IPK = 3.75
+--------------------
+Nama = Rara
+Tahun masuk: 2012
+Umur = 19
+IPK = 4.0
+--------------------
+Data mahasiswa setelah sorting asc berdasarkan ipk
+Nama = Abdul
+Tahun masuk: 2017
+Umur = 23
+IPK = 2.0
+--------------------
+Nama = Nusa
+Tahun masuk: 2017
+Umur = 25
+IPK = 3.0
+--------------------
+Nama = Donpu
+Tahun masuk: 2018
+Umur = 19
+IPK = 3.5
+--------------------
+Nama = Ummi
+Tahun masuk: 2019
+Umur = 21
+IPK = 3.75
+--------------------
+Nama = Rara
+Tahun masuk: 2012
+Umur = 19
+IPK = 4.0
+--------------------
+```
 pertanyaan
 
 latihan praktikum
 membuat palform travel menyediakan layanan pemesanan kebutuhan travelling dengan kasus 
 1. harga dimulai dari harga termurah ke harga tertinggi
 2. rating bintang penginapan dari bintangn tertinggi ke terendah
-class 
+class hotel
+```java
+package pertemuan6.hotel;
+public class Hotel {
+
+    private String nama;
+    private String kota;
+    private int harga;
+    private byte bintang;
+
+    public Hotel(String nama, String kota, int harga, byte bintang) {
+        this.nama = nama;
+        this.kota = kota;
+        this.harga = harga;
+        this.bintang = bintang;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getKota() {
+        return kota;
+    }
+
+    public void setKota(String kota) {
+        this.kota = kota;
+    }
+
+    public int getHarga() {
+        return harga;
+    }
+
+    public void setHarga(int harga) {
+        this.harga = harga;
+    }
+
+    public byte getBintang() {
+        return bintang;
+    }
+
+    public void setBintang(byte bintang) {
+        this.bintang = bintang;
+    }
+
+    public String toString() {
+        return "Hotel{" +
+                "nama='" + nama + '\'' +
+                ", kota='" + kota + '\'' +
+                ", harga=" + harga +
+                ", bintang=" + bintang +
+                '}';
+    }
+}
+```
+class hotel service
+```java
+package pertemuan6.hotel;
+import java.util.ArrayList;
+import java.util.List;
+public class HotelService {
+
+    private List<Hotel> hotelList;
+
+    public HotelService() {
+        hotelList = new ArrayList<>();
+    }
+
+    public void tambah(Hotel hotel) {
+        hotelList.add(hotel);
+    }
+
+    public void tampilAll() {
+        for (Hotel hotel : hotelList) {
+            System.out.println(hotel);
+        }
+    }
+
+    public void bubbleSortHarga() {
+        for (int i = 0; i < hotelList.size() - 1; i++) {
+            for (int j = 0; j < hotelList.size() - i - 1; j++) {
+                if (hotelList.get(j).getHarga() > hotelList.get(j + 1).getHarga()) {
+                    Hotel temp = hotelList.get(j);
+                    hotelList.set(j, hotelList.get(j + 1));
+                    hotelList.set(j + 1, temp);
+                }
+            }
+        }
+    }
+
+    public void selectionSortBintang() {
+        for (int i = 0; i < hotelList.size() - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < hotelList.size(); j++) {
+                if (hotelList.get(j).getBintang() > hotelList.get(minIndex).getBintang()) {
+                    minIndex = j;
+                }
+            }
+            Hotel temp = hotelList.get(minIndex);
+            hotelList.set(minIndex, hotelList.get(i));
+            hotelList.set(i, temp);
+        }
+    }
+}
+```
+class main
+```java
+package pertemuan6.hotel;
+public class Main {
+
+    public static void main(String[] args) {
+        HotelService hotelService = new HotelService();
+
+        hotelService.tambah(new Hotel("Hotel A", "Malang", 100000, (byte) 4));
+        hotelService.tambah(new Hotel("Hotel B", "Surabaya", 200000, (byte) 5));
+        hotelService.tambah(new Hotel("Hotel C", "Jakarta", 300000, (byte) 3));
+
+        System.out.println("Sebelum Sorting:");
+        hotelService.tampilAll();
+
+        System.out.println("\nSetelah Sorting Harga (Bubble Sort):");
+        hotelService.bubbleSortHarga();
+        hotelService.tampilAll();
+
+        System.out.println("\nSetelah Sorting Bintang (Selection Sort):");
+        hotelService.selectionSortBintang();
+        hotelService.tampilAll();
+    }
+}
+```
+contoh output
+```
+Sebelum Sorting:
+Hotel{nama='Hotel A', kota='Malang', harga=100000, bintang=4}
+Hotel{nama='Hotel B', kota='Surabaya', harga=200000, bintang=5}
+Hotel{nama='Hotel C', kota='Jakarta', harga=300000, bintang=3} 
+
+Setelah Sorting Harga (Bubble Sort):
+Hotel{nama='Hotel A', kota='Malang', harga=100000, bintang=4}  
+Hotel{nama='Hotel B', kota='Surabaya', harga=200000, bintang=5}
+Hotel{nama='Hotel C', kota='Jakarta', harga=300000, bintang=3} 
+
+Setelah Sorting Bintang (Selection Sort):
+Hotel{nama='Hotel B', kota='Surabaya', harga=200000, bintang=5}
+Hotel{nama='Hotel A', kota='Malang', harga=100000, bintang=4}
+Hotel{nama='Hotel C', kota='Jakarta', harga=300000, bintang=3} 
+```
