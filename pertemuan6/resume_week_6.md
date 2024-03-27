@@ -480,7 +480,128 @@ IPK = 4.0
 --------------------
 ```
 pertanyaan
-
+ubahlah fungsi pada insertionSort sehingga fungsi ini dapat melakukan proses sorting dengan cara descending
+```java
+// method insertionSort (percobaan 3 mengunakan sorting insertion secara descending)
+    void insertionSort(){
+        for(int i=1; i<listMhs.length; i++){
+            Mahasiswa tmp = listMhs[i];
+            int j = i;
+            while (j>0 && listMhs[j-1].ipk<tmp.ipk){ // Mengubah ">" menjadi "<"
+                listMhs[j] = listMhs[j-1];
+                j--;
+            }
+            listMhs[j] = tmp;
+        }
+    }
+```
+contoh output
+```
+Data mahasiswa sebelum sorting = 
+Nama = Nusa
+Tahun masuk: 2017
+Umur = 25
+IPK = 3.0
+--------------------
+Nama = Rara
+Tahun masuk: 2012
+Umur = 19
+IPK = 4.0
+--------------------
+Nama = Donpu
+Tahun masuk: 2018
+Umur = 19
+IPK = 3.5
+--------------------
+Nama = Abdul
+Tahun masuk: 2017
+Umur = 23
+IPK = 2.0
+--------------------
+Nama = Ummi
+Tahun masuk: 2019
+Umur = 21
+IPK = 3.75
+--------------------
+Data mahasiswa stelah sorting desc berdasarkan ipk
+Nama = Rara
+Tahun masuk: 2012
+Umur = 19
+IPK = 4.0
+--------------------
+Nama = Ummi
+Tahun masuk: 2019
+Umur = 21
+IPK = 3.75
+--------------------
+Nama = Donpu
+Tahun masuk: 2018
+Umur = 19
+IPK = 3.5
+--------------------
+Nama = Nusa
+Tahun masuk: 2017
+Umur = 25
+IPK = 3.0
+--------------------
+Nama = Abdul
+Tahun masuk: 2017
+Umur = 23
+IPK = 2.0
+--------------------
+Data mahasiswa setelah sorting asc berdasarkan ipk
+Nama = Abdul
+Tahun masuk: 2017
+Umur = 23
+IPK = 2.0
+--------------------
+Nama = Nusa
+Tahun masuk: 2017
+Umur = 25
+IPK = 3.0
+--------------------
+Nama = Donpu
+Tahun masuk: 2018
+Umur = 19
+IPK = 3.5
+--------------------
+Nama = Ummi
+Tahun masuk: 2019
+Umur = 21
+IPK = 3.75
+--------------------
+Nama = Rara
+Tahun masuk: 2012
+Umur = 19
+IPK = 4.0
+--------------------
+Data mahasiswa setelah sorting asc berdasarkan ipk
+Nama = Rara
+Tahun masuk: 2012
+Umur = 19
+IPK = 4.0
+--------------------
+Nama = Ummi
+Tahun masuk: 2019
+Umur = 21
+IPK = 3.75
+--------------------
+Nama = Donpu
+Tahun masuk: 2018
+Umur = 19
+IPK = 3.5
+--------------------
+Nama = Nusa
+Tahun masuk: 2017
+Umur = 25
+IPK = 3.0
+--------------------
+Nama = Abdul
+Tahun masuk: 2017
+Umur = 23
+IPK = 2.0
+--------------------
+```
 latihan praktikum
 membuat palform travel menyediakan layanan pemesanan kebutuhan travelling dengan kasus 
 1. harga dimulai dari harga termurah ke harga tertinggi
