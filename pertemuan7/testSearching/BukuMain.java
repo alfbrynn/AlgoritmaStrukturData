@@ -30,6 +30,7 @@ public class BukuMain {
         System.out.println("==================================");
         System.out.println("Data keseluruhan mahasiswa");
 
+        // pemanggila method tampil
         System.out.println("===========================================");
         System.out.println("Data keseluruhan Buku: ");
         data.tampil();
@@ -42,7 +43,14 @@ public class BukuMain {
         System.out.println("Menggunakan sequential search");
         int posisi = data.FindSeqSearch(cari);
         data.tampilPosisi(cari, posisi);
+        // pemanggilan method tampilData
         data.tampilData(cari, posisi);
         
+        // pemanggilan method findBinarySearch
+        System.out.println("========================");
+        System.out.println("menggunakan binary search");
+        posisi = data.findBinarySearch(cari, 0, jumBuku - 1);
+        data.tampilPosisi(cari, posisi);
+        data.tampilData(cari, posisi);
     }
 }

@@ -402,9 +402,89 @@ Stok    : 2
 pertanyaan
 1. Jelaskan fungsi break yang ada pada method FindSeqSearch!
 untuk emnghentikan iterasi setelah sebuah elemen yang sesuai ditemukan.
-2. Jika Data Kode Buku yang dimasukkan tidak terurut dari kecil ke besar. Apakah program masih
-dapat berjalan? Apakah hasil yang dikeluarkan benar? Tunjukkan hasil screenshoot untuk bukti
+2. Jika Data Kode Buku yang dimasukkan tidak terurut dari kecil ke besar. Apakah program masih dapat berjalan? Apakah hasil yang dikeluarkan benar? Tunjukkan hasil screenshoot untuk bukti
+masih bisa berjalan dengan baik
+```
+--------------------------------
+Masukkan data buku secara urut dari kode buku terkecil:
+-------------------
+Kode buku       : 3
+Judul buku      : the hunger games
+Tahun terbit    : 2001
+Pengarang       : tolkien
+Stok    : 2
+-------------------
+Kode buku       : 6
+Judul buku      : narnia
+Tahun terbit    : 2002
+Pengarang       : cr lewis
+Stok    : 2
+-------------------
+Kode buku       : 2
+Judul buku      : the hobbit
+Tahun terbit    : 2011
+Pengarang       : jrr tolkien
+Stok    : 6
+-------------------
+Kode buku       : 1
+Judul buku      : harry potter
+Tahun terbit    : 2004
+Pengarang       : jk rowling
+Stok    : 2
+-------------------
+Kode buku       : 8
+Judul buku      : matematika
+Tahun terbit    : 2003
+Pengarang       : erwin
+Stok    : 2
+==================================
+Data keseluruhan mahasiswa
+===========================================
+Data keseluruhan Buku:
+========================
+Kode buku: 3
+Judul buku: the hunger games
+Tahun terbit: 2001
+Pengarang: tolkien
+Stock: 2
+========================
+Kode buku: 6
+Judul buku: narnia
+Tahun terbit: 2002
+Pengarang: cr lewis
+Stock: 2
+========================
+Kode buku: 2
+Judul buku: the hobbit
+Tahun terbit: 2011
+Pengarang: jrr tolkien
+Stock: 6
+========================
+Kode buku: 1
+Judul buku: harry potter
+Tahun terbit: 2004
+Pengarang: jk rowling
+Stock: 2
+========================
+Kode buku: 8
+Judul buku: matematika
+Tahun terbit: 2003
+Pengarang: erwin
+Stock: 2
+----------------------------------------
+Pencarian data:
+Masukkan kode buku yang dicari:
+Kode buku: 1
+Menggunakan sequential search
+Data: 1ditemukan pada indeks 3
+Kode buku       : 1
+Judul   : harry potter
+Tahun terbit    : 2004
+Pengarang       : jk rowling
+Stok    : 2
+```
+saya mencoba input kode buku dengan nomer yang tidak urut dan sistem masih bisa berjalan dengan normal
 dengan kode Buku yang acak. Jelaskan Mengapa hal tersebut bisa terjadi?
-3. Buat method baru dengan nama FindBuku menggunakan konsep sequential search dengan tipe
-method dari FindBuku adalah BukuNoAbsen. Sehingga Anda bisa memanggil method
+karena sistem menggunakan metode sequential search dimana metode ini tidak perlu mengurutkan nomer untuk melakukan metode sequential search. sehingga sistem dapat berjalan dengan normal
+3. Buat method baru dengan nama FindBuku menggunakan konsep sequential search dengan tipe method dari FindBuku adalah BukuNoAbsen. Sehingga Anda bisa memanggil method
 tersebut pada class BukuMain seperti gambar berikut :

@@ -54,4 +54,22 @@ public class PencarianBuku19 {
             System.out.println("data "+ x + "tidak ditemukan");
         }
     }
+
+    // pertanyaan 3
+    // membuat method baru findBuku menggunakan konsep sequential search dengan tipe method dari findBuku yaitu Buku19
+
+    public int findBinarySearch(int cari, int left, int right){
+        int mid;
+        if (right >= left){
+            mid = (left + right) / 2;
+            if (cari == listBk[mid].kodeBuku){
+                return mid; 
+            } else if (listBk[mid].kodeBuku > cari) {
+                return findBinarySearch(cari, left, mid - 1);
+            } else {
+                return findBinarySearch(cari, mid + 1, right);
+            }
+        }
+        return -1;
+    }
 }
