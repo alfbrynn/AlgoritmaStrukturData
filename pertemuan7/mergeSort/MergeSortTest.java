@@ -2,10 +2,12 @@ package pertemuan7.mergeSort;
   
 class MergeSortTest {
   
+    // method mergeSort yang menerima parameter data array yang akan diurutkan
     public void mergeSort(int[] data) {
         sort(data, 0, data.length -1);
     }
 
+    // method merge untuk penggabungan data dari bagian kiri dan kanan
     public void merge(int data[], int left, int middle, int right){
         int[] temp = new int[data.length];
         for(int i = 0; i < data.length; i++){

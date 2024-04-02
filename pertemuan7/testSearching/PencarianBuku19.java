@@ -57,6 +57,14 @@ public class PencarianBuku19 {
 
     // pertanyaan 3
     // membuat method baru findBuku menggunakan konsep sequential search dengan tipe method dari findBuku yaitu Buku19
+    public Buku19 FindBuku(int kodeBuku){
+        for (Buku19 buku : listBk){
+            if (buku.kodeBuku == kodeBuku){
+                return buku;
+            }
+        }
+        return null; 
+    }
 
     public int findBinarySearch(int cari, int left, int right){
         int mid;
