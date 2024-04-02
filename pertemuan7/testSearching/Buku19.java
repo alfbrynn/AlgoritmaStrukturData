@@ -1,14 +1,15 @@
 package pertemuan7.testSearching;
 public class Buku19{
     // atribut class Buku19
-    int kodeBuku;
+    // kode buku yang awalnya bertipe int diganti String (latihan praktikum)
+    String kodeBuku;
     String judulBuku;
     int tahunTerbit;
     String pengarang;
     int stock;
 
     // kontruktor Buku19 dengan parameter
-    public Buku19(int kodeBuku, String judulBuku, int tahunTerbit, String pengarang, int stock){
+    public Buku19(String kodeBuku, String judulBuku, int tahunTerbit, String pengarang, int stock){
         this.kodeBuku = kodeBuku;
         this.judulBuku = judulBuku;
         this.tahunTerbit = tahunTerbit;

@@ -1,7 +1,6 @@
 package pertemuan7.testSearching;
 import java.util.Scanner;
 
-import pertemuan5.Sum.mainSum;
 public class BukuMain {
     public static void main(String[] args) {
     Scanner s = new Scanner(System.in);
@@ -14,7 +13,7 @@ public class BukuMain {
     for ( int i=0; i<jumBuku; i++){
         System.out.println("-------------------");
         System.out.print("Kode buku \t: ");
-        int kodeBuku = s.nextInt();
+        String kodeBuku = s1.nextLine(); // Menggunakan String untuk kode buku
         System.out.print("Judul buku \t: ");
         String judulBuku = s1.nextLine();
         System.out.print("Tahun terbit \t: ");
@@ -30,7 +29,7 @@ public class BukuMain {
         System.out.println("==================================");
         System.out.println("Data keseluruhan mahasiswa");
 
-        // pemanggila method tampil
+        // pemanggilan method tampil
         System.out.println("===========================================");
         System.out.println("Data keseluruhan Buku: ");
         data.tampil();
@@ -39,7 +38,7 @@ public class BukuMain {
         System.out.println("Pencarian data: ");
         System.out.println("Masukkan kode buku yang dicari: ");
         System.out.print("Kode buku: ");
-        int cari = s.nextInt();
+        String cari = s.nextLine();
         System.out.println("Menggunakan sequential search");
         int posisi = data.FindSeqSearch(cari);
         data.tampilPosisi(cari, posisi);
@@ -53,8 +52,9 @@ public class BukuMain {
         data.tampilPosisi(cari, posisi);
         data.tampilData(cari, posisi);
 
-        Buku19 dataBuku = data.FindBuku(cari);
-        dataBuku.tampilDataBuku();
+        // pemanggilan method FindBuku
+        // Buku19 dataBuku = data.FindBuku(cari);
+        // dataBuku.tampilDataBuku();
 
     }
 }
