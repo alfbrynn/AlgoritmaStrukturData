@@ -236,34 +236,22 @@ Gudang19 gudang = new Gudang19(7);
 berdasarkan potongan kode tersebut telah ditentukan jumlah maksimal data barang adalah 7
 3. Mengapa perlu pengecekan kondisi !cekKosong() pada method tampilkanBarang? Kalau kondisi
 tersebut dihapus, apa dampaknya?
-untuk melakukan pengecekan apakah tumpukan masih kosong sehingga bisa ditambahkan kembali. jika kondisi dihapus maka sistem tidak bisa mendeteksi apakah tumpukan masih kosong ataupun sudah sesuai kapasitas
-contoh output jika method cekKosong dihapus
-```java
-Menu
-1. tambah barang
-2. ambil barang
-3. tampilkan tumpukan barang
-4. keluar
-Pilih operasi: 1
-Masukkan kode barang: 21
-Masukkan nama barang: buku
-Masukkan nama kategori: buku
-Barang buku Berhasil ditambahkan ke Gudang
-
-Menu
-1. tambah barang
-2. ambil barang
-3. tampilkan tumpukan barang
-4. keluar
-Pilih operasi: 1
-Masukkan kode barang: buku
-Exception in thread "main" java.util.InputMismatchException    
-        at java.base/java.util.Scanner.throwFor(Scanner.java:947)
-        at java.base/java.util.Scanner.next(Scanner.java:1602) 
-        at java.base/java.util.Scanner.nextInt(Scanner.java:2267)
-        at java.base/java.util.Scanner.nextInt(Scanner.java:2221)
-        at Pertemuan8.Main19.main(Main19.java:23)
-```
+untuk memastikan bahwa tumpukan tidak kosong sebelum mencoba menampilkan barang
+dampaknya jika method ini dihapus yaitu terjadi exeption saat tumpukan kosong sehingga sistem tidak dapat memunculkan output yang dinginkan
 4. Modifikasi kode program pada class Utama sehingga pengguna juga dapat memilih operasi lihat
 barang teratas, serta dapat secara bebas menentukan kapasitas gudang!
+berikut cuplikan kode pada class main untuk menampilkan barang teratas
+```java
+case 4:
+                    gudang.lihatBarangTeratas();
+```
+dikarenaka pada program sebelumnya sudah dibuatkan method untuk menampilkan barang teratas, kita hanya perlu memanggil method tersebut pada class main
+```java
+// inputan jumlah kapasitas tumpukan
+        Scanner sc19 = new Scanner(System.in);
+        System.out.print("Masukkan jumlah kapasitas yang di inginkan: ");
+        int kapasitas = sc19.nextInt();
+        Gudang19 gudang = new Gudang19(kapasitas);
+```
+cuplikan kode di atas merupakan kode untuk input jumlah kapasitas yang dapat ditampung tumpukan
 5. Commit dan push kode program ke Github

@@ -41,6 +41,7 @@ class Main19 {
                     break;
                 case 3:
                     gudang.tampilkanBarang();
+                // untuk menampilkan barang teratas
                 case 4:
                     gudang.lihatBarangTeratas();
                     break;
