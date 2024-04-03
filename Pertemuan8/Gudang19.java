@@ -8,12 +8,14 @@ class Gudang19 {
     int size;
     int top;
 
+    // konstruktor berparameter untuk melakukan inisialisasi kapasitas maksimum data barang
     public Gudang19(int kapasitas){
         size = kapasitas;
         tumpukan = new Barang19[size];
         top = -1;
     }
 
+    // method cekKosong untuk mengecek apakah tumpukan barang didalam gudang masih kosong
     public boolean cekKosong(){
         if(top == -1){
             return true;
@@ -22,6 +24,7 @@ class Gudang19 {
         }
     }
 
+    // method ini untuk mengecek apakah tumpukan barang di dalam gudang sudah penuh
     public boolean cekPenuh(){
         if (top == size -1) {
             return true;
@@ -30,6 +33,7 @@ class Gudang19 {
         }
     }
 
+    // method ini untuk mempresentasikan push, method ini menerima parameter brg berupa objek barang
     public void tambahBarang(Barang19 brg){
         if (!cekPenuh()) {
             top++;
@@ -40,6 +44,7 @@ class Gudang19 {
         }
     }
 
+    // method ini untuk mempresentasikan pop, method ini tidak menerima parameter karena barang yang diambil pasti pada posisi teratas
     public Barang19 ambilBarang(){
         if (!cekKosong()) {
             Barang19 delete = tumpukan[top];
@@ -52,8 +57,9 @@ class Gudang19 {
         }
     }
 
+    // method ini untuk merepresentasikan peek untuk dapat mengecek tumpukan barang di posisi top
     public Barang19 lihatBarangTeratas(){
-        if (!cekKosong()) {
+        if (!cekKosong()) { // isEmpty di ubah menjadi cekKosong
             Barang19 barangTeratas = tumpukan[top];
             System.out.println("Barang teratas: " + barangTeratas.nama);
             return barangTeratas;
@@ -67,7 +73,7 @@ class Gudang19 {
         if (!cekKosong()){
             System.out.println("Rincian tumpukan barang di Gudang: ");
             for (int i = 0; i <= top; i++){
-                System.out.printf("Kode %d: %s (kategori %s)\n", tumpukan[i].kode, tumpukan[i].nama, tumpukan[i]. kategori);
+                System.out.printf("Kode %d: %s (kategori %s)\n ", tumpukan[i].kode, tumpukan[i].nama, tumpukan[i]. kategori);
             } 
         }else {
             System.out.println("Tumpukan barang kosong");
