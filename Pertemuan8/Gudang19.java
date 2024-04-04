@@ -6,7 +6,7 @@ class Gudang19 {
 
     Barang19[] tumpukan;
     int size;
-    int top;
+    int top; 
 
     // konstruktor berparameter untuk melakukan inisialisasi kapasitas maksimum data barang
     public Gudang19(int kapasitas){
@@ -97,5 +97,40 @@ class Gudang19 {
             biner += stack.pop();
         }
         return biner;
+    }
+
+    // latihan praktikum membuat method lihat tumpukan barang terbawah
+    public Barang19 lihatBarangTerbawah(){
+        if (!cekKosong()) {
+            Barang19 barangTerbawah = tumpukan[0]; // Barang terbawah berapa pada indeks 0
+            System.out.println("Barang terbawah: " + barangTerbawah.nama);
+            return barangTerbawah;
+        } else {
+            System.out.println("Tumpukan barang kosong");
+            return null;
+        }
+    }
+
+    // latihan praktikum membuat method lihat barang dengan nama atau kode barang
+    public boolean cariBarang(int kode){
+        for (int i = 0; i <= top; i++) {
+            if (tumpukan[i].kode == kode) {
+                System.out.println("Barang dengan kode " + kode + "ditemukan di posisi " + i + " dalam gudang");
+                return true;
+            }
+        }
+        System.out.println("Barang dengan kode " + kode + " tidak ditemukan dalam gudang.");
+        return false;
+    }   
+
+    public boolean cariBarang(String namaBarang){
+        for (int i = 0; i <= top; i++){
+            if (tumpukan[i].nama.equals(namaBarang)) {
+                System.out.println("Barang dengan nama " + namaBarang + " ditemukan diposisi " + i + " dalam gudang");
+                return true;
+            }
+        }
+        System.out.println("Barang dengan nama " + namaBarang + " tidak ditemukan dalam gudang");
+        return false;
     }
 }

@@ -497,4 +497,143 @@ Cuplikan kode tersebut adalah sebuah metode untuk mengonversi bilangan desimal k
 
 Percobaan 3
 Konversi notasi infix ke postfix
+class postfix19
+```java
+package Pertemuan8;
+
+import javax.print.attribute.standard.MediaSize.ISO;
+
+public class Postfix19 {
+    int n, top;
+    char[] stack;
+
+    public Postfix19(int total){
+        n = total;
+        top = -1;
+        stack = new char[n];
+        push('(');
+    }
+
+    public void push(char c){
+        top++;
+        stack[top] = c;
+    }
+
+    public char pop(){
+        char item = stack[top];
+        top--;
+        return item;
+    }
+
+    // method isOperand untuk mengecek apakah elemen berupa operan
+    public boolean IsOperand(char c){
+        if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ' ' || c =='.' ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean IsOperator(char c){
+        if (c == '^' || c == '%' || c == '/' || c == '*' || c == '-' || c == '+') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public int derajat(char c){
+        switch (c) {
+            case '^':
+                return 3;
+            case '%':
+                return 2;
+            case '/':
+                return 2;
+            case '*':
+                return 2;
+            case '-':
+                return 1;
+            case '+':
+                return 1;
+            default:
+                return 0;
+        }
+    }
+
+    public String konversi(String Q){
+        String P = "";
+        char c;
+        for (int i = 0; i < n; i++){
+            c = Q.charAt(i);
+            if (IsOperand(c)) {
+                P = P + c;
+            }
+            if (c == '(') {
+                push(c);
+            }
+            if (c == ')') {
+                while (stack[top] != '(') {
+                    P = P + pop();
+                }
+                pop();
+            }
+            if (IsOperator(c)) {
+                while (derajat(stack[top]) >= derajat(c)) {
+                    P = P + pop();
+                }
+                push(c);
+            }
+        }
+        return P;
+    }
+    
+}
+```
+class postfix main
+```java
+package Pertemuan8;
+import java.util.Scanner;
+
+class postfixMain {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String P, Q;
+        System.out.print("Masukkan notasi matematika (infix): ");
+        Q = sc.nextLine();
+        Q = Q.trim();
+        Q = Q + ")";
+
+        int total = Q.length();
+
+        Postfix19 post = new Postfix19(total);
+        P = post.konversi(Q);
+        System.out.println("Postfix: " + P);
+    }
+    
+}
+```
+contoh output
+``` java
+Masukkan notasi matematika (infix): a+b*(c+d-e)/f
+Postfix: abcd+e-*f/+
+```
+pertanyaan
+1. Pada method derajat, mengapa return value beberapa case bernilai sama? Apabila return
+value diubah dengan nilai berbeda-beda setiap case-nya, apa yang terjadi?
+hal ini mengacu pada skala prioritas dari operator matematika, misalnya, perkalian dan pembagian memiliki prioritas yang sama, begitu juga dengan penjumlahan dan pengurangan maka return valuenya sama. jika return value di ubah dengan nilai yang berbeda setiap case nya, itu akan mengubah prioritas operator matematika
+2. Jelaskan alur kerja method konversi!
+method ini berfungsi untuk mengkonversi notasi infix ke postfix
+1. Inisialisasi string `P` yang akan menyimpan notasi postfix.
+2. Iterasi melalui setiap karakter dalam notasi infix yang diberikan.
+3. Jika karakter adalah operand (huruf atau angka), tambahkan ke notasi postfix `P`.
+4. Jika karakter adalah tanda kurung buka (`(`), dorong ke dalam stack.
+5. Jika karakter adalah tanda kurung tutup (`)`), pop dari stack dan tambahkan ke notasi postfix `P` sampai menemukan tanda kurung buka yang sesuai. Kemudian, pop tanda kurung buka dari stack.
+6. Jika karakter adalah operator, periksa prioritasnya dengan operator yang ada di dalam stack. Jika operator di dalam stack memiliki prioritas yang sama atau lebih tinggi, pop operator tersebut dan tambahkan ke notasi postfix `P`. Lakukan ini hingga stack kosong atau operator dengan prioritas yang lebih rendah ditemukan. Kemudian dorong operator yang sedang diproses ke dalam stack.
+7. Setelah iterasi selesai, jika masih ada operator di dalam stack, pop dan tambahkan ke notasi postfix `P`.
+8. Mengembalikan notasi postfix `P` yang telah selesai dikonversi.
+3. Pada method konversi, apa fungsi dari potongan kode berikut?
+kode tersebut berfungsi untuk mengambil karakter pada posisi tertentu dalam string Q dan menyimpannyake variabel e
+
+
 

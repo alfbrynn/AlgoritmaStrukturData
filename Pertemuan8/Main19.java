@@ -20,7 +20,9 @@ class Main19 {
             System.out.println("3. tampilkan tumpukan barang");
             // pertanyaan 4 percobaan 1 menambahkan tumpukan barang teratas
             System.out.println("4. tampilkan tumpukan barang teratas");
-            System.out.println("5. keluar");
+            System.out.println("5. lihat barang terbawah");
+            System.out.println("6. cari barang");
+            System.out.println("7. keluar");
             System.out.print("Pilih operasi: ");
             int pilihan = scanner.nextInt();
 
@@ -41,9 +43,36 @@ class Main19 {
                     break;
                 case 3:
                     gudang.tampilkanBarang();
+                    break;
                 // untuk menampilkan barang teratas
                 case 4:
                     gudang.lihatBarangTeratas();
+                    break;
+                case 5:
+                    gudang.lihatBarangTerbawah();
+                    break;
+                case 6:
+                    System.out.println("Cari berdasarkan.");
+                    System.out.println("1. kode barang");
+                    System.out.println("2. nama barang");
+                    System.out.print("Pilih kriteria pencarian: ");
+                    int kriteria = scanner.nextInt();
+                    scanner.nextLine();
+                    switch (kriteria) {
+                        case 1:
+                            System.out.print("Masukkan kode barang yang ingin dicari: ");
+                            int kodeCari = scanner.nextInt();
+                            gudang.cariBarang(kodeCari);
+                            break;
+                        case 2:
+                            System.out.print("Masukkan nama barang yang dicari: ");
+                            String namaCari = scanner.nextLine();
+                            gudang.cariBarang(namaCari);
+                            break;
+                        default:
+                            System.out.println("Pilihan tidak valid.");
+                            break;
+                    }
                     break;
                 default:
                     System.out.println("Pilihan tidak valid. Silahkan coba lagi.");
