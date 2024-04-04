@@ -486,4 +486,15 @@ Pilih operasi:
 Pertanyaan
 1. Pada method konversiDesimalKeBiner, ubah kondisi perulangan menjadi while (kode != 0),
 bagaimana hasilnya? Jelaskan alasannya!
+hasilnya akan sama, karena keduanya memastikan bahwa perulangan terus berlanjut selama `kode` masih bernilai lebih besar dari 0.
 2. Jelaskan alur kerja dari method konversiDesimalKeBiner!
+Cuplikan kode tersebut adalah sebuah metode untuk mengonversi bilangan desimal ke biner menggunakan struktur data stack. Berikut adalah alur kerjanya:
+1. Sebuah objek stack (`StackKonversi19`) dibuat untuk menyimpan sisa hasil pembagian bilangan desimal dengan 2.
+2. Perulangan `while` dijalankan selama `kode` tidak sama dengan 0. Pada setiap iterasi, modulus 2 dari `kode` dihitung untuk mendapatkan sisa pembagian, yang kemudian dimasukkan ke dalam stack menggunakan metode `push()`. Selanjutnya, nilai `kode` dibagi dengan 2 untuk mendapatkan nilai selanjutnya.
+3. Setelah selesai mengonversi seluruh digit desimal ke biner dan menyimpannya dalam stack, string biner yang akan menjadi hasil akhir diinisialisasi.
+4. Dilakukan perulangan `while` untuk mengeluarkan elemen dari stack menggunakan metode `pop()` dan menambahkannya ke string biner.
+5. Setelah stack kosong, string biner yang telah terisi dengan digit biner dari bilangan desimal dikembalikan sebagai hasil.
+
+Percobaan 3
+Konversi notasi infix ke postfix
+
