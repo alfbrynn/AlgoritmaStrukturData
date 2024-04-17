@@ -51,6 +51,7 @@ class Main19 {
                 case 5:
                     gudang.lihatBarangTerbawah();
                     break;
+                // memanggil method cariBarang
                 case 6:
                     System.out.println("Cari berdasarkan.");
                     System.out.println("1. kode barang");
