@@ -163,4 +163,22 @@ Setelah pengurutan Ascending: ditemukan pada index 12
 Setelah pengurutan Descending: ditemukan pada index 4
 
 Terima kasih telah menggunakan program ini!
+```
 
+berikut contoh jika nilai tidak ditemukan
+
+```java
+========= Pencarian dan Pengurutan Data =========
+Program ini akan mencari sebuah nilai yang Anda masukkan dalam array.
+Masukkan angka yang ingin Anda cari(salah satu dari : 22, 27, 0, 27, 37, 2, 22, 14, 47, 50, 48, 37, 9, 41, 45, 41, 44): 12
+
+======== Nilai dalam Array ========
+Data Setelah pengurutan Ascending: 0 2 9 14 22 22 27 27 37 37 41 41 44 45 47 48 50
+Data Setelah pengurutan Descending: 50 48 47 45 44 41 41 37 37 27 27 22 22 14 9 2 0 
+
+========= Hasil Pencarian =========
+Sebelum pengurutan: tidak ditemukan
+Setelah pengurutan Ascending: tidak ditemukan
+Setelah pengurutan Descending: tidak ditemukan
+
+Terima kasih telah menggunakan program ini!
