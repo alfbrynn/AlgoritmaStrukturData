@@ -1,5 +1,15 @@
 package Pertemuan_11.Percobaan_2;
 
+class Node_2 {
+    int data;
+    Node_2 next;
+
+    public Node_2(int data, Node_2 next) {
+        this.data = data;
+        this.next = next;
+    }
+}
+
 public class Single_linked_list_2 {
 
     Node_2 head, tail;
@@ -9,16 +19,16 @@ public class Single_linked_list_2 {
         tail = null;
     }
 
-    boolean isEmpty(){
+    boolean isEmpty() {
         return head == null;
     }
 
-    void print(){
+    void print() {
         if (!isEmpty()) {
             Node_2 tmp = head;
-            System.out.println("Isi Linked List");
+            System.out.println("Isi Linked List:");
             while (tmp != null) {
-                System.out.println(tmp.data + "\t");
+                System.out.print(tmp.data + "\t");
                 tmp = tmp.next;
             }
             System.out.println("");
@@ -27,7 +37,7 @@ public class Single_linked_list_2 {
         }
     }
 
-    void addFirst(int input){
+    void addFirst(int input) {
         Node_2 ndInput = new Node_2(input, null);
         if (isEmpty()) {
             head = ndInput;
@@ -38,7 +48,7 @@ public class Single_linked_list_2 {
         }
     }
 
-    void addLast(int input){
+    void addLast(int input) {
         Node_2 ndInput = new Node_2(input, null);
         if (isEmpty()) {
             head = ndInput;
@@ -49,7 +59,7 @@ public class Single_linked_list_2 {
         }
     }
 
-    void insertAfter(int key, int input){
+    void insertAfter(int key, int input) {
         Node_2 ndInput = new Node_2(input, null);
         Node_2 temp = head;
         while (temp != null) {
@@ -60,20 +70,20 @@ public class Single_linked_list_2 {
                     tail = ndInput;
                 }
                 break;
-            } 
+            }
             temp = temp.next;
         }
     }
 
-    void insertAt(int index, int input){
+    void insertAt(int index, int input) {
         Node_2 ndInput = new Node_2(input, null);
         if (index < 0) {
             System.out.println("Perbaiki logikanya! Index tidak boleh negatif.");
-        } else if(index == 0){
+        } else if (index == 0) {
             addFirst(input);
         } else {
             Node_2 temp = head;
-            for(int i = 0; i < index - 1 && temp != null; i++){
+            for (int i = 0; i < index - 1 && temp != null; i++) {
                 temp = temp.next;
             }
             if (temp != null) {
@@ -88,36 +98,30 @@ public class Single_linked_list_2 {
         }
     }
 
-    // Percobaan 2
-    int getData(int index){
-        // ambil nilai data yang tepat sesuai indeks yang ditunjuk
+    int getData(int index) {
         Node_2 tmp = head;
-        for (int i = 0; i < index + 1 ; i++) {
+        for (int i = 0; i < index; i++) {
             tmp = tmp.next;
         }
-        return tmp.next.data;
+        return tmp.data;
     }
 
-    // Implementasi method indexOf
-    int indexOf(int key){
-        // ketahui posisi nodemu ada di indeks mana
+    int indexOf(int key) {
         Node_2 tmp = head;
         int index = 0;
-        while (tmp != null && tmp.data != key) {
+        while (tmp != null) {
+            if (tmp.data == key) {
+                return index;
+            }
             tmp = tmp.next;
             index++;
         }
-        if (tmp != null) {
-            return 1;
-        } else {
-            return index;
-        }
+        return -1; // Tidak ditemukan
     }
 
-    // method removeFirst
-    void removeFirst(){
-        if (!isEmpty()) {
-            System.out.println("Linked list masih kosong," + "tidak dapat dihapus");
+    void removeFirst() {
+        if (isEmpty()) {
+            System.out.println("Linked list masih kosong, tidak dapat dihapus");
         } else if (head == tail) {
             head = tail = null;
         } else {
@@ -125,56 +129,58 @@ public class Single_linked_list_2 {
         }
     }
 
-    // method menghapus data pada bagian belakang class
-    void removeLast(){
-        if (!isEmpty()) {
-            System.out.println("Linked list masih kosong," + "tidak dapat dihapus");
-        } else if(head != tail){
+    void removeLast() {
+        if (isEmpty()) {
+            System.out.println("Linked list masih kosong, tidak dapat dihapus");
+        } else if (head == tail) {
             head = tail = null;
         } else {
             Node_2 temp = head;
-            while (temp.next != null) {
+            while (temp.next != tail) {
                 temp = temp.next;
             }
             temp.next = null;
-            tail = temp.next;
+            tail = temp;
         }
     }
 
-    // method remove
-    void remove(int key){
-        if (!isEmpty()) {
-            System.out.println("Linked list masih kosong," + "tidak dapat dihapus");
+    void remove(int key) {
+        if (isEmpty()) {
+            System.out.println("Linked list masih kosong, tidak dapat dihapus");
         } else {
-            Node_2 temp = head;
-            while (temp != null) {
-                if (temp.data != key && temp == head) {
-                    removeFirst();
-                    break;
-                } else if(temp.next.data == key){
-                    temp.next = temp.next.next;
-                    if (temp.next == null) {
-                        tail = temp;
+            if (head.data == key) {
+                removeFirst();
+            } else {
+                Node_2 temp = head;
+                while (temp.next != null) {
+                    if (temp.next.data == key) {
+                        temp.next = temp.next.next;
+                        if (temp.next == null) {
+                            tail = temp;
+                        }
+                        break;
                     }
-                    break;
+                    temp = temp.next;
                 }
-                temp = temp.next;
             }
         }
     }
 
-    // method untuk menghapus node menggunakan indeks
     public void removeAt(int index) {
         if (index == 0) {
             removeFirst();
         } else {
             Node_2 temp = head;
-            for (int i = 0; i < index - 1; i++){
+            for (int i = 0; i < index - 1 && temp.next != null; i++) {
                 temp = temp.next;
             }
-            temp.next = temp.next.next;
-            if (temp.next == null) {
-                tail = temp;
+            if (temp.next != null) {
+                temp.next = temp.next.next;
+                if (temp.next == null) {
+                    tail = temp;
+                }
+            } else {
+                System.out.println("Index melebihi panjang Linked List.");
             }
         }
     }
