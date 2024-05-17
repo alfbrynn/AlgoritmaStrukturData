@@ -1,4 +1,4 @@
-package Pertemuan3.ArrayBalok;
+package Pertemuan_3.ArrayBalok;
 
 public class Balok19 {
     public int panjang;

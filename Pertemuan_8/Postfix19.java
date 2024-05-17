@@ -1,4 +1,4 @@
-package Pertemuan8;
+package Pertemuan_8;
 
 import javax.print.attribute.standard.MediaSize.ISO;
 

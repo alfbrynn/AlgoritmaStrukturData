@@ -1,4 +1,4 @@
-package Pertemuan3.BangunRuang;
+package Pertemuan_3.BangunRuang;
 import java.util.Scanner;
 
 public class Main19 {

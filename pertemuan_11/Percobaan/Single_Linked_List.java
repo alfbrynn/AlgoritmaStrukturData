@@ -1,4 +1,4 @@
-package pertemuan_11;
+package Pertemuan_11.Percobaan;
 
 public class Single_Linked_List {
 

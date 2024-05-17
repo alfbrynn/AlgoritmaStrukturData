@@ -1,4 +1,4 @@
-package Pertemuan3.PersegiPanjang;
+package Pertemuan_3.PersegiPanjang;
 public class PersegiPanjang19 {
     public int panjang;
     public int lebar;

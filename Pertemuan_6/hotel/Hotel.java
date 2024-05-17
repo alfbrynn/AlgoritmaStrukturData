@@ -1,4 +1,4 @@
-package pertemuan6.hotel;
+package Pertemuan_6.hotel;
 public class Hotel {
 
     private String nama;

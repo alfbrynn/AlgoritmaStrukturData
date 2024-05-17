@@ -1,4 +1,4 @@
-package pertemuan7.testSearching;
+package Pertemuan_7.testSearching;
 public class Buku19{
     // atribut class Buku19
     // kode buku yang awalnya bertipe int diganti String (latihan praktikum)

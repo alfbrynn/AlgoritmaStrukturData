@@ -1,4 +1,4 @@
-package pertemuan6.BubbleSelectionInsertion;
+package Pertemuan_6.BubbleSelectionInsertion;
 
 import java.util.List;
 

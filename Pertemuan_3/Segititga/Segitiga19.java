@@ -1,4 +1,4 @@
-package Pertemuan3.Segititga;
+package Pertemuan_3.Segititga;
 public class Segitiga19{
     public int alas;
     public int tinggi;

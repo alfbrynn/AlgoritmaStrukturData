@@ -1,4 +1,4 @@
-package pertemuan7.mergeSort;
+package Pertemuan_7.mergeSort;
   
 class MergeSortTest {
   

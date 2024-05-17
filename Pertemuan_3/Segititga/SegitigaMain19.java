@@ -1,4 +1,4 @@
-package Pertemuan3.Segititga;
+package Pertemuan_3.Segititga;
 public class SegitigaMain19{
     public static void main(String[] args) {
         Segitiga19[] sgArray = new Segitiga19[4];

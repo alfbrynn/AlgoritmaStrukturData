@@ -1,4 +1,4 @@
-package pertemuan5.Sum;
+package Pertemuan_5.Sum;
 public class sum{
     int elemen;
     double keuntungan[], total;

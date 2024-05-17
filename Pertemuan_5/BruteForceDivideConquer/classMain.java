@@ -1,4 +1,4 @@
-package pertemuan5.BruteForceDivideConquer;
+package Pertemuan_5.BruteForceDivideConquer;
 import java.util.Scanner;
 public class classMain{
     public static void main(String[] args) {

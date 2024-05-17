@@ -1,4 +1,4 @@
-package pertemuan5.LatihanPraktikum;
+package Pertemuan_5.LatihanPraktikum;
 
 import javax.print.DocFlavor.STRING;
 

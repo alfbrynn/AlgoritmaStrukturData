@@ -1,4 +1,4 @@
-package Pertemuan3.DataMahasiswa;
+package Pertemuan_3.DataMahasiswa;
 
 import java.util.Scanner;
 

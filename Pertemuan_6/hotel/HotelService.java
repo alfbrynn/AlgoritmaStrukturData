@@ -1,4 +1,4 @@
-package pertemuan6.hotel;
+package Pertemuan_6.hotel;
 import java.util.ArrayList;
 import java.util.List;
 public class HotelService {

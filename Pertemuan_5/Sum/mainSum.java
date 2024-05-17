@@ -1,4 +1,4 @@
-package pertemuan5.Sum;
+package Pertemuan_5.Sum;
 import java.util.Scanner;
 
 public class mainSum{

@@ -1,4 +1,4 @@
-package pertemuan6.BubbleSelectionInsertion;
+package Pertemuan_6.BubbleSelectionInsertion;
 
 public class Mahasiswa{
     String nama;

@@ -1,4 +1,4 @@
-package Pertemuan3.PersegiPanjang;
+package Pertemuan_3.PersegiPanjang;
 import java.util.Scanner;
 
 public class ArrayObjects19 {

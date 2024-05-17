@@ -1,4 +1,4 @@
-package Pertemuan3.BangunRuang;
+package Pertemuan_3.BangunRuang;
 
 public class Kerucut19{
     private int jariJari;

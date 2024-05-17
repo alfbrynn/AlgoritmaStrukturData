@@ -1,4 +1,4 @@
-package pertemuan7.testSearching;
+package Pertemuan_7.testSearching;
 import java.util.Scanner;
 
 public class BukuMain {

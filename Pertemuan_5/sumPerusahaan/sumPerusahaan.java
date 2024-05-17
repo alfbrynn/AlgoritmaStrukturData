@@ -1,4 +1,4 @@
-package pertemuan5.sumPerusahaan;
+package Pertemuan_5.sumPerusahaan;
 public class sumPerusahaan{
     int elemen;
     double[] keuntungan;

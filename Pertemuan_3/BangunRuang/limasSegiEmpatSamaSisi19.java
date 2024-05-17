@@ -1,4 +1,4 @@
-package Pertemuan3.BangunRuang;
+package Pertemuan_3.BangunRuang;
 public class limasSegiEmpatSamaSisi19{
     private int sisiAlas;
     private int tinggi;

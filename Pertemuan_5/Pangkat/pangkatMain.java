@@ -1,4 +1,4 @@
-package pertemuan5.Pangkat;
+package Pertemuan_5.Pangkat;
 import java.util.Scanner;
 
 public class pangkatMain{

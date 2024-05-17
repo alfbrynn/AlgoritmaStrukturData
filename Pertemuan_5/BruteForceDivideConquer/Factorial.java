@@ -1,4 +1,4 @@
-package pertemuan5.BruteForceDivideConquer;
+package Pertemuan_5.BruteForceDivideConquer;
 
 public class Factorial{
     public int nilai;

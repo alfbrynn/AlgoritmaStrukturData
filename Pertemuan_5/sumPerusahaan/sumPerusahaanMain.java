@@ -1,4 +1,4 @@
-package pertemuan5.sumPerusahaan;
+package Pertemuan_5.sumPerusahaan;
 import java.util.Scanner;
 public class sumPerusahaanMain {
     public static void main(String[] args) {

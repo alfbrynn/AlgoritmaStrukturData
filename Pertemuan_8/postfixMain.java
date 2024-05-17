@@ -1,4 +1,4 @@
-package Pertemuan8;
+package Pertemuan_8;
 import java.util.Scanner;
 
 class postfixMain {

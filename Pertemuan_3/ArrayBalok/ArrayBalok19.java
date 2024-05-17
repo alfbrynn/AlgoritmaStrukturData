@@ -1,4 +1,4 @@
-package Pertemuan3.ArrayBalok;
+package Pertemuan_3.ArrayBalok;
 public class ArrayBalok19 {
     public static void main(String[] args) {
         //int panjang = 100;
