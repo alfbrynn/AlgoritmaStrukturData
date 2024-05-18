@@ -16,14 +16,14 @@ public class Single_Linked_List {
     void print(){
         if (!isEmpty()) {
             Node tmp = head;
-            System.out.println("Isi Linked List");
+            System.out.print("Isi Linked List: ");
             while (tmp != null) {
-                System.out.println(tmp.data + "\t");
+                System.out.print(tmp.data + "\t");
                 tmp = tmp.next;
             }
             System.out.println("");
         } else {
-            System.out.println("Linked List Kosong");
+            System.out.println("Linked List kosong");
         }
     }
 

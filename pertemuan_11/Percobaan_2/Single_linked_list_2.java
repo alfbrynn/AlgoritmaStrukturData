@@ -26,7 +26,7 @@ public class Single_linked_list_2 {
     void print() {
         if (!isEmpty()) {
             Node_2 tmp = head;
-            System.out.println("Isi Linked List:");
+            System.out.print("Isi Linked List:");
             while (tmp != null) {
                 System.out.print(tmp.data + "\t");
                 tmp = tmp.next;
@@ -109,15 +109,16 @@ public class Single_linked_list_2 {
     int indexOf(int key) {
         Node_2 tmp = head;
         int index = 0;
-        while (tmp != null) {
-            if (tmp.data == key) {
-                return index;
-            }
+        while (tmp != null && tmp.data != key){
             tmp = tmp.next;
             index++;
         }
-        return -1; // Tidak ditemukan
-    }
+        if(tmp != null){
+            return 1;
+        } else {
+            return index;
+        }
+    }    
 
     void removeFirst() {
         if (isEmpty()) {
