@@ -19,7 +19,7 @@ public class SLL_Main_2 {
         System.out.println("Data pada indeks ke-1 = " + singLL.getData(1));
 
         // Index dari data 833 (bukan data 3)
-        System.out.println("Data 833 berada pada indeks ke-" + singLL.indexOf(833));
+        System.out.println("Data 3 berada pada indeks ke-" + singLL.indexOf(833));
 
         singLL.remove(999);
         singLL.print();
