@@ -160,6 +160,23 @@ Isi Linked List: 700    999     760     890
 Isi Linked List: 700    999     760     890
 ```
 
+#### Pertanyaan
+1. Mengapa hasil compile kode program di baris pertama menghasilkan "Linked Llist Kosong"?
+jawab
+```
+Pada baris pertama di method main, kita memanggil 'singLL.print()' sebelu ada elemen yang ditambahkan ke dalam linked list. Karena linked list baru saja dibuat dan masing kosong, method 'print' akan memeriksa apakah linked list kosong dengan method 'isEmpty()' yang akan mengembalikan 'true'. Oleh karena itu program akan mencetak "Linked List Kosong"
+```
+2.  Jelaskan kegunaan variable 'temp' secara umum pada setiap method?
+jawab
+```
+variable 'temp' digunakan sebagai pointer sementara untuk menjelajahi linked list dari 'head' ke 'tail'.
+```
+3. Perhatikan class Single_Linked_List, pada method insertAt jelaskan kegunaan kode berikut if (temp.next == null) tail = temp.next;
+jawab   
+```
+Kode tersebut memeriksa apakah node 'temp.next' adalah node terakhir dalam linked list. Node terakhir akan memiliki 'next' yang bernilai null. Jika kondisi tersebut benar, berarti node 'temp.next' adalah node terakhir. Node baru akan disisipkan setelah 'temp' dan sebelum 'temp.next'. Setelah penyisipan, node baru menjadi node terakhir. 'tail' diperbarui untuk menunjuk ke node baru tersebut.
+```
+
 ### Percobaan 2
 
 Class Node.java
@@ -405,4 +422,226 @@ public class SLL_Main_2 {
 }
 ```
 Contoh output
+```
+Linked List Kosong
+Isi Linked List:890
+Isi Linked List:890     760
+Isi Linked List:700     890     760
+Isi Linked List:700     999     890     760
+Isi Linked List:700     999     890     760     833
+Data pada indeks ke-1 = 999
+Data 3 berada pada indeks ke-1
+Isi Linked List:700     890     760     833
+Isi Linked List:890     760     833
+Isi Linked List:760     833
+Isi Linked List:760
+```
+
+####  Pertanyaan
+1. Mengapa digunakan keyword break pada fungsi remove? Jelaskan! 
+jawab
+```
+Hal tersebut untuk menghentikan iterasi lebih awal setelah elemen yang ingin dihapus ditemukan dan dihapus. setelah menghapus elemen yang sesuai, tidak perlu melanjutkan iterasi, sehingga 'break' digunakan untuk keluar dari loop 'while'.
+```
+2. Jelaskan kegunaan kode dibawah pada method remove
+else if (temp.next.data == key) {
+temp.next = temp.next.next;
+jawab
+```
+Kode ini digunakan untuk menghapus node dari linked list. Ketika 'temp.next.data = key' yang artinya node yang ingin dihapus ditemukan. baris 'temp.next' digunakan untuk menunjuk ke node setelahnya untuk dihapus. Dengan cara ini, node yang ditunjuk oleh 'temp.next' dilewati.
+
+### Tugas
+
+1. Implementasikan ilustrasi Linked List Berikut. Gunakan 4 macam penambahan data yang telah 
+dipelajari sebelumnya untuk menginputkan data.
+
+class Node.java
+```java
+package Pertemuan_11.Tugas_1;
+
+class Node {
+    int NIM;
+    String nama;
+    Node next;
+
+    public Node(int NIM, String nama) {
+        this.NIM = NIM;
+        this.nama = nama;
+        this.next = null;
+    }
+}
+```
+class Linked_List.java
+```java
+package Pertemuan_11.Tugas_1;
+
+class Linked_List {
+    Node head;
+
+    public Linked_List() {
+        this.head = null;
+    }
+
+    public void addLast(int NIM, String nama) {
+        Node newNode = new Node(NIM, nama);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node temp = head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
+        }
+    }
+
+    public void printList() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.println("NIM: " + temp.NIM + ", Nama: " + temp.nama);
+            temp = temp.next;
+        }
+    }
+}
+```
+class Main.java
+```java
+package Pertemuan_11.Tugas_1;
+
+public class Main {
+    public static void main(String[] args) {
+        Linked_List list = new Linked_List();
+        list.addLast(111, "Anton");
+        list.addLast(112, "Prita");
+        list.addLast(113, "Yusuf");
+        list.addLast(114, "Doni");
+
+        list.printList();
+    }
+}
+```
+contoh output
+```
+NIM: 111, Nama: Anton
+NIM: 112, Nama: Prita
+NIM: 113, Nama: Yusuf
+NIM: 114, Nama: Doni
+```
+
+2. Buatlah implementasi program antrian layanan unit kemahasiswaan sesuai dengan kondisi yang 
+ditunjukkan pada soal nomor 1! Ketentuan
+a. Implementasi antrian menggunakan Queue berbasis Linked List!
+b. Program merupakan proyek baru, bukan modifikasi dari soal nomor 1
+
+class Node.java
+```java
+package Pertemuan_11.Tugas_2;
+
+class Node {
+    int NIM;
+    String nama;
+    Node next;
+
+    public Node(int NIM, String nama) {
+        this.NIM = NIM;
+        this.nama = nama;
+        this.next = null;
+    }
+}
+```
+class Queue.java
+```java
+package Pertemuan_11.Tugas_2;
+
+class Queue {
+    Node front, rear;
+
+    public Queue() {
+        this.front = this.rear = null;
+    }
+
+    void enqueue(int NIM, String nama) {
+        Node newNode = new Node(NIM, nama);
+
+        if (this.rear == null) {
+            this.front = this.rear = newNode;
+            return;
+        }
+
+        this.rear.next = newNode;
+        this.rear = newNode;
+    }
+
+    void dequeue() {
+        if (this.front == null) {
+            System.out.println("Queue is empty");
+            return;
+        }
+
+        Node temp = this.front;
+        this.front = this.front.next;
+
+        if (this.front == null) {
+            this.rear = null;
+        }
+
+        System.out.println("Dequeued: NIM: " + temp.NIM + ", Nama: " + temp.nama);
+    }
+
+    void printQueue() {
+        Node temp = front;
+        while (temp != null) {
+            System.out.println("NIM: " + temp.NIM + ", Nama: " + temp.nama);
+            temp = temp.next;
+        }
+    }
+}
+```
+class Main_Queue.java
+```java
+package Pertemuan_11.Tugas_2;
+
+public class Main_Queue {
+    public static void main(String[] args) {
+        Queue queue = new Queue();
+
+        // Menambahkan beberapa elemen ke dalam queue
+        queue.enqueue(19, "Alif");
+        queue.enqueue(112, "Prita");
+        queue.enqueue(113, "Yusuf");
+        queue.enqueue(114, "Doni");
+        queue.enqueue(115, "Sari");
+
+        // Menampilkan semua elemen dalam queue
+        System.out.println("Queue setelah menambahkan 5 elemen:");
+        queue.printQueue();
+
+        // Menghapus dua elemen dari queue
+        System.out.println("\nDequeue dua elemen:");
+        queue.dequeue();
+        queue.dequeue();
+
+        // Menampilkan sisa elemen dalam queue
+        System.out.println("\nQueue setelah menghapus 2 elemen:");
+        queue.printQueue();
+    }
+}
+```
+contoh output
+```
+Queue setelah menambahkan 5 elemen:
+NIM: 19, Nama: Alif
+NIM: 112, Nama: Prita
+NIM: 113, Nama: Yusuf
+NIM: 114, Nama: Doni
+NIM: 115, Nama: Sari
+
+Dequeue dua elemen:
+Dequeued: NIM: 19, Nama: Alif
+Dequeued: NIM: 112, Nama: Prita
+
+Queue setelah menghapus 2 elemen:
+NIM: 113, Nama: Yusuf
+NIM: 114, Nama: Doni
+NIM: 115, Nama: Sari
 ```
