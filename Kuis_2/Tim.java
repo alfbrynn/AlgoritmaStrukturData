@@ -1,34 +1,59 @@
 public class Tim {
-    String nama;
-    int poin;
-    int gameDiMainkan;
-    int gameKandang;
-    int gameTandang;
+    private String nama;
+    private int pertandinganDimainkan;
+    private int kemenangan;
+    private int kekalahan;
+    private int poin;
+    private double rasioSkor;
+    private Tim next;
 
     public Tim(String nama) {
         this.nama = nama;
+        this.pertandinganDimainkan = 0;
+        this.kemenangan = 0;
+        this.kekalahan = 0;
         this.poin = 0;
-        this.gameDiMainkan = 0;
-        this.gameKandang = 0;
-        this.gameTandang = 0;
+        this.rasioSkor = 0.0;
+        this.next = null;
     }
 
-    public void addWin(boolean kandangGame) {
-        this.poin += 2;
-        this.gameDiMainkan += 1;
-        if (kandangGame) {
-            this.gameKandang += 1;
-        } else {
-            this.gameTandang += 1;
-        }
-    }
-
-    public String getnama() {
+    public String getNama() {
         return nama;
     }
 
-    public void printDetails() {
-        System.out.println("Tim{nama='" + nama + "', poin=" + poin + ", gameDiMainkan=" + gameDiMainkan +
-                ", gameKandang=" + gameKandang + ", gameTandang=" + gameTandang + '}');
+    public int getPertandinganDimainkan() {
+        return pertandinganDimainkan;
+    }
+
+    public int getKemenangan() {
+        return kemenangan;
+    }
+
+    public int getKekalahan() {
+        return kekalahan;
+    }
+
+    public int getPoin() {
+        return poin;
+    }
+
+    public double getRasioSkor() {
+        return rasioSkor;
+    }
+
+    public Tim getNext() {
+        return next;
+    }
+
+    public void setNext(Tim next) {
+        this.next = next;
+    }
+
+    public void addMatchResults(int menang, int kalah) {
+        this.kemenangan += menang;
+        this.kekalahan += kalah;
+        this.pertandinganDimainkan += 30; // Total pertandingan yang dimainkan adalah 30
+        this.poin += (menang * 2);
+        this.rasioSkor = (double) this.kemenangan / this.kekalahan;
     }
 }
