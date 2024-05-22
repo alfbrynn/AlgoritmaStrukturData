@@ -15,56 +15,55 @@ class Node {
         this.next = null;
     }
 
-    // Getter methods
     public String getNama() {
         return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
     }
 
     public int getPertandinganDimainkan() {
         return pertandinganDimainkan;
     }
 
-    public int getKemenangan() {
-        return kemenangan;
-    }
-
-    public int getKekalahan() {
-        return kekalahan;
-    }
-
-    public int getPoin() {
-        return poin;
-    }
-
-    public Node getNext() {
-        return next;
-    }
-
-    // Setter methods
-    public void setNama(String nama) {
-        this.nama = nama;
-    }
-
     public void setPertandinganDimainkan(int pertandinganDimainkan) {
         this.pertandinganDimainkan = pertandinganDimainkan;
+    }
+
+    public int getKemenangan() {
+        return kemenangan;
     }
 
     public void setKemenangan(int kemenangan) {
         this.kemenangan = kemenangan;
     }
 
+    public int getKekalahan() {
+        return kekalahan;
+    }
+
     public void setKekalahan(int kekalahan) {
         this.kekalahan = kekalahan;
+    }
+
+    public int getPoin() {
+        return poin;
     }
 
     public void setPoin(int poin) {
         this.poin = poin;
     }
 
+    public Node getNext() {
+        return next;
+    }
+
     public void setNext(Node next) {
         this.next = next;
     }
 
+    // method addMatchResults digunakan untuk memperbarui statistik tim setelah selesai pertandingan
     public void addMatchResults(int menang, int kalah) {
         this.kemenangan += menang;
         this.kekalahan += kalah;

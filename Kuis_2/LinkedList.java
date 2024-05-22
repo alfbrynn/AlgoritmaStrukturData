@@ -1,10 +1,12 @@
 class LinkedList {
     private Node head;
 
+    // construktor
     public LinkedList() {
         this.head = null;
     }
 
+    // method untuk menambahkan node baru pada linked list
     public void insert(Node node) {
         if (head == null) {
             head = node;
@@ -17,6 +19,7 @@ class LinkedList {
         }
     }
 
+    // method untuk memperbarui hasil pertandingan antar tim
     public void addMatchResults(String namaTim1, int skorTim1, String namaTim2, int skorTim2) {
         Node tim1 = null, tim2 = null;
         Node temp = head;
@@ -42,6 +45,7 @@ class LinkedList {
         }
     }
 
+    // method bubbleshort digunakan untuk mengurutkan linked list berdasarkan poin setiap tim dalam urutan descending
     public void sort() {
         if (head == null || head.getNext() == null) return;
 
@@ -81,6 +85,7 @@ class LinkedList {
         }
     }
 
+    // method untuk mencetak tabel
     public void printTable() {
         sort();
         Node temp = head;
