@@ -53,7 +53,7 @@ public class Tim {
         this.kemenangan += menang;
         this.kekalahan += kalah;
         this.pertandinganDimainkan += 30; // Total pertandingan yang dimainkan adalah 30
-        this.poin += (menang * 2);
+        this.poin += (menang * 2 + kalah * 1);
         this.rasioSkor = (double) this.kemenangan / this.kekalahan;
     }
 }
