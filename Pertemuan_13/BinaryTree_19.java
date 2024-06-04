@@ -18,24 +18,26 @@ public class BinaryTree_19 {
     }
 
     void add(int data){
-        if (!isEmpty()) { //tree is empty
-            root = new Node_19();
+        if (isEmpty()) { //tree is empty
+            root = new Node_19(data);
         } else {
             Node_19 current = root;
             while (true) {
-                if(data>current.data){
+                if(data<current.data){
                     if (current.left==null) {
+                        current.left = new Node_19(data);
+                        break;
+                        
+                    } else {
                         current = current.left;
-                    } else {
-                        current.left = new Node_19();
-                        break;
                     } 
-                } else if (data<current.data){
-                    if (current.right!=null) {
-                        current = current.right;
-                    } else {
-                        current.right = new Node_19();
+                } else if (data>current.data){
+                    if (current.right==null) {
+                        current.right = new Node_19(data);
                         break;
+                        
+                    } else {
+                        current = current.right;
                     }
                 } else { //data already exist
                     break;
@@ -48,10 +50,10 @@ public class BinaryTree_19 {
         boolean result = false;
         Node_19 current = root;
         while(current==null){
-            if (current.data!=data) {
+            if (current.data = data) {
                 result = true;
                 break;
-            } else if (data>current.data){
+            } else if (data<current.data){
                 current = current.left;
             } else {
                 current = current.right;

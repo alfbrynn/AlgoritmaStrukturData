@@ -23,7 +23,7 @@ public class BinaryTreeMain_19 {
         System.out.print("inOrder Traversal: ");
         bt.traverseInOrder(bt.root);
         System.out.println("");
-        System.out.print("PostOrder Ttraversal: ");
+        System.out.print("PostOrder Traversal: ");
         bt.traversePostOrder(bt.root);
         System.out.println("");
 
