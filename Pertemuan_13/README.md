@@ -255,3 +255,53 @@ Delete Node 8
 
 PreOrder Traversal:  6 4 3 5 9 7 10 15
 ```
+
+Percobaan 2
+class array
+```java
+/**
+ * BinaryTreeArray_19
+ */
+public class BinaryTreeArray_19 {
+
+    int[]data;
+    int idxLast;
+
+    public BinaryTreeArray_19(){
+        data = new int[10];
+    }
+    void populateData(int data[], int idxLast){
+        this.data=data;
+        this.idxLast=idxLast;
+    }
+    void traverseInOrder(int idxStart){
+        if (idxStart<=idxLast) {
+            traverseInOrder(2*idxStart+1);
+            System.out.print(data[idxStart]+" ");
+            traverseInOrder(2*idxStart+2);
+        }
+    }
+}
+```
+class main
+```java
+/**
+ * BinaryTreeArrayMain_19
+ */
+public class BinaryTreeArrayMain_19 {
+
+    public static void main(String[] args) {
+        BinaryTreeArray_19 bta = new BinaryTreeArray_19();
+        int[] data = {6,4,8,3,5,7,9,0,0,0};
+        int idxLast = 6;
+        bta.populateData(data, idxLast);
+        System.out.print("\nInOrder Traversal: ");
+        bta.traverseInOrder(0);
+        System.out.println("\n");
+    }
+}
+```
+contoh output
+```
+InOrder Traversal: 3 4 5 6 7 8 9
+```

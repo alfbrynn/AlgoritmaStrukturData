@@ -34,5 +34,15 @@ public class BinaryTreeMain_19 {
         System.out.print("PreOrder Traversal: ");
         bt.traversePreOrder(bt.root);
         System.out.println("");
+
+        // memanggil method pada tugas
+        System.out.println("Minimum value: " + bt.findMin());
+        System.out.println("Maximum value: " + bt.findMax());
+
+        System.out.print("Leaf: ");
+        bt.printLeaf();
+        System.out.println();
+
+        System.out.println("Number of leaf: " + bt.countLeaf());
     }
 }

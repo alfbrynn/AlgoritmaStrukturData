@@ -1,5 +1,7 @@
 package Pertemuan_13;
 
+import org.w3c.dom.Node;
+
 // import org.w3c.dom.Node;
 
 /**
@@ -182,4 +184,78 @@ public class BinaryTree_19 {
             }
         }
     }
+
+    // method untuk menambahkan node secara rekursif
+    Node_19 addRecursive(Node_19 root, int data){
+        if (root == null) {
+            root = new Node_19(data);
+            return root;
+        }
+        if (data<root.data) {
+            root.left = addRecursive(root.left, data);
+        } else if (data > root.data){
+            root.right = addRecursive(root.right, data);
+        }
+        return root; 
+    }
+
+    // method menampilkan nilai paling kecil
+    int findMin(){
+        return findMinRecursive(root);
+    }
+    int findMinRecursive(Node_19 root){
+        if (root.left==null) {
+            return root.data;
+        } else{
+            return findMinRecursive(root.left);
+        }
+    }
+
+    // method menampilkan nilai paling besar
+    int findMax(){
+        return findMaxRecursive(root);
+    }
+    int findMaxRecursive(Node_19 root){
+        if (root.right==null) {
+            return root.data;
+        } else{
+            return findMaxRecursive(root.right);
+        }
+    }
+
+    // Method untuk menampilkan data yang ada di leaf
+     void printLeaf() {
+        printLeafRecursive(root);
+    }
+
+    void printLeafRecursive(Node_19 root) {
+        if (root == null) {
+            return;
+        }
+
+        if (root.left == null && root.right == null) {
+            System.out.print(root.data + " ");
+        }
+
+        printLeafRecursive(root.left);
+        printLeafRecursive(root.right);
+    }
+
+    // method untuk emnampilkan jumlah leaf
+    int countLeaf() {
+        return countLeafRecursive(root);
+    }
+
+    int countLeafRecursive(Node_19 root) {
+        if (root == null) {
+            return 0;
+        }
+
+        if (root.left == null && root.right == null) {
+            return 1;
+        } else {
+            return countLeafRecursive(root.left) + countLeafRecursive(root.right);
+        }
+    }
+    
 }
