@@ -305,3 +305,121 @@ contoh output
 ```
 InOrder Traversal: 3 4 5 6 7 8 9
 ```
+
+Tugas
+1.  Buat method di dalam class BinaryTree yang akan menambahkan node dengan cara 
+rekursif
+```java
+// method untuk menambahkan node secara rekursif
+    Node_19 addRecursive(Node_19 root, int data){
+        if (root == null) {
+            root = new Node_19(data);
+            return root;
+        }
+        if (data<root.data) {
+            root.left = addRecursive(root.left, data);
+        } else if (data > root.data){
+            root.right = addRecursive(root.right, data);
+        }
+        return root; 
+    }
+```
+
+2.  Buat method di dalam class BinaryTree untuk menampilkan nilai paling kecil dan yang 
+paling besar yang ada di dalam tree.
+```java
+// method menampilkan nilai paling kecil
+    int findMin(){
+        return findMinRecursive(root);
+    }
+    int findMinRecursive(Node_19 root){
+        if (root.left==null) {
+            return root.data;
+        } else{
+            return findMinRecursive(root.left);
+        }
+    }
+
+    // method menampilkan nilai paling besar
+    int findMax(){
+        return findMaxRecursive(root);
+    }
+    int findMaxRecursive(Node_19 root){
+        if (root.right==null) {
+            return root.data;
+        } else{
+            return findMaxRecursive(root.right);
+        }
+    }
+```
+
+3.  Buat method di dalam class BinaryTree untuk menampilkan data yang ada di leaf.
+```java
+void printLeaf() {
+        printLeafRecursive(root);
+    }
+
+    void printLeafRecursive(Node_19 root) {
+        if (root == null) {
+            return;
+        }
+
+        if (root.left == null && root.right == null) {
+            System.out.print(root.data + " ");
+        }
+
+        printLeafRecursive(root.left);
+        printLeafRecursive(root.right);
+    }
+```
+
+4.  Buat method di dalam class BinaryTree untuk menampilkan berapa jumlah leaf yang ada 
+di dalam tree.
+```java
+int countLeaf() {
+        return countLeafRecursive(root);
+    }
+
+    int countLeafRecursive(Node_19 root) {
+        if (root == null) {
+            return 0;
+        }
+
+        if (root.left == null && root.right == null) {
+            return 1;
+        } else {
+            return countLeafRecursive(root.left) + countLeafRecursive(root.right);
+        }
+    }
+```
+
+5.  Modifikasi class BinaryTreeArray, dan tambahkan :
+-  method add(int data) untuk memasukan data ke dalam tree
+```java
+void add(int data){
+        if (idxLast < data) {
+            this.data[idxLast] = data;
+            idxLast++;
+        } else {
+            System.out.println("Array sudah penuh!");
+        }
+    }
+```
+-  method traversePreOrder() dan traversePostOrder()
+```java
+void traversePreOrder(int idxStart){
+        if (idxStart<=idxLast) {
+            System.out.print(data[idxStart]+" ");
+            traversePreOrder(2*idxStart+1);
+            traversePreOrder(2*idxStart+2);
+        }
+    }
+
+    void traversePostOrder(int idxStart){
+        if (idxStart<=idxLast) {
+            traversePostOrder(2*idxStart+1);
+            traversePostOrder(2*idxStart+2);
+            System.out.print(data[idxStart]+" ");
+        }
+    }
+```
