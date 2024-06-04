@@ -46,14 +46,14 @@ public class DoubleLinkedList {
             return;
         }
         Node current = head;
-        System.out.println("-------------------------------------------------");
-        System.out.printf("| %-10s | %-20s |\n", "No Antrian", "Nama Penerima Vaksin");
-        System.out.println("-------------------------------------------------");
+        // System.out.println("-------------------------------------------------");
+        System.out.printf("| %-10s | %-20s |\n", "No", "Nama");
+        // System.out.println("-------------------------------------------------");
         while (current != null) {
             System.out.printf("| %-10d | %-20s |\n", current.queueNumber, current.name);
             current = current.next;
         }
-        System.out.println("-------------------------------------------------");
+        // System.out.println("-------------------------------------------------");
     }    
 
     public int getQueueSize() {

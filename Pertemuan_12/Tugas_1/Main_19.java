@@ -10,7 +10,7 @@ public class Main_19 {
             System.out.println("        PENGANTRI VAKSIN EXTRAVAGANZA");
             System.out.println("++++++++++++++++++++++++++++++++++++++++");
             System.out.println("1. Tambah Data Penerima Vaksin");
-            System.out.println("2. Hapus Data Pengantir Vaksin");
+            System.out.println("2. Hapus Data Penerima Vaksin");
             System.out.println("3. Daftar Penerima Vaksin");
             System.out.println("4. Keluar");
             System.out.print("Pilih opsi: ");
@@ -30,7 +30,7 @@ public class Main_19 {
                 case 2:
                     Node removedPerson = vaccineQueue.removePerson();
                     if (removedPerson != null) {
-                        System.out.println(removedPerson.name + "telah selesai divaksinasi.");
+                        System.out.println(removedPerson.name + " telah selesai divaksinasi.");
                     } else {
                         System.out.println("Antrian kosong, tidak ada data yang dapat dihapus.");
                     }
