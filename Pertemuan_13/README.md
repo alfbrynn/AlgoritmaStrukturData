@@ -247,3 +247,11 @@ public class BinaryTreeMain_19 {
 ```
 contoh output
 ```
+PreOrder Traversal:  6 4 3 5 8 7 9 10 15
+inOrder Traversal:  3 4 5 6 7 8 9 10 15
+PostOrder Traversal:  3 5 4 7 15 10 9 8 6
+Find Node: true
+Delete Node 8
+
+PreOrder Traversal:  6 4 3 5 9 7 10 15
+```
