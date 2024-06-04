@@ -49,11 +49,11 @@ public class BinaryTree_19 {
     boolean find(int data){
         boolean result = false;
         Node_19 current = root;
-        while(current==null){
-            if (current.data = data) {
+        while(current!=null){
+            if (current.data != data) {
                 result = true;
                 break;
-            } else if (data<current.data){
+            } else if (data>current.data){
                 current = current.left;
             } else {
                 current = current.right;
