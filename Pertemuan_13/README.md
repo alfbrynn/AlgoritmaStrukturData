@@ -1,3 +1,23 @@
+<div style="text-align: center;">
+
+# **Laporan Kuis 2**
+# **Single Linked List**
+
+<img src="https://spmb.polinema.ac.id/devel/asset/images/polinema_logo.png" alt="Logo Universitas" style="width: 200px;"/>
+
+## Disusun oleh:
+**Nama:** Muhammad Alif Febriansyah <br>
+**NIM:** 2341720025 <br>
+**Kelas:** TI-1B <br>
+
+## Jurusan
+Teknologi Informasi
+
+## Politeknik Negeri Malang
+2023/2024
+
+</div>
+
 Kode percobaan 1
 class Node
 ```java
@@ -256,6 +276,42 @@ Delete Node 8
 PreOrder Traversal:  6 4 3 5 9 7 10 15
 ```
 
+Pertanyaan Percobaan
+1. Mengapa dalam binary search tree proses pencarian data bisa lebih efektif dilakukan dibanding 
+binary tree biasa?
+karena BST memiliki struktur yang lebih terorganisir berdasarkan nilai data. Struktur tersebut memungkinkan algoritma pencarian untuk membagi ruang pencaian secara efisien dengan membuang setengah kemungkinan pada setiap langkah
+2. Untuk apakah di class Node, kegunaan dari atribut left dan right?
+left untuk menunjuk ke node anak kiri node saat ini dan right untuk menunjuk node anak kanan dari node saat ini
+3. a. Untuk apakah kegunaan dari atribut root di dalam class BinaryTree?
+untuk menunjuk node paling awal pada tree
+b. Ketika objek tree pertama kali dibuat, apakah nilai dari root?
+nilai dari root adalah null
+4. Ketika tree masih kosong, dan akan ditambahkan sebuah node baru, proses apa yang akan terjadi?
+node baru akan menjadi node root dari tree
+5. Perhatikan method add(), di dalamnya terdapat baris program seperti di bawah ini. Jelaskan 
+secara detil untuk apa baris program tersebut?
+if(data<current.data){
+ if(current.left!=null){
+ current = current.left;
+ }else{
+ current.left = new Node(data);
+ break;
+ }
+}
+- if(data<current.data){
+untuk memerika apakah nilai data yang akan ditambahkan lebih kecil dari current(data node saat ini)
+-  if(current.left!=null){
+pindah ke node anak kiri
+ current = current.left;
+untuk melanjutkan proses pencarian posisi yang tepat untuk node baru
+- }else{
+ current.left = new Node(data);
+memasukan node baru di posisi kosong sebagai anak kiri node saat ini
+ break;
+ untuk menghentikan loop
+ }
+
+
 Percobaan 2
 class array
 ```java
@@ -305,6 +361,24 @@ contoh output
 ```
 InOrder Traversal: 3 4 5 6 7 8 9
 ```
+
+Pertanyaan
+1. Apakah kegunaan dari atribut data dan idxLast yang ada di class BinaryTreeArray?
+atribut data digunakan untuk menyimpan data data dalam array dan idxLast berguna untuk mencatat index terakhir yang digunakan dalam array
+2. Apakah kegunaan dari method populateData()?
+untuk mengisi array data
+3. Apakah kegunaan dari method traverseInOrder()?
+untuk melakukan tranversal pada binary tree array dengan urutan in-order
+4. Jika suatu node binary tree disimpan dalam array indeks 2, maka di indeks berapakah posisi 
+left child dan rigth child masin-masing?
+Left child: Posisi left child dari node dengan indeks 2 adalah 2 * 2 + 1 = 5.
+Right child: Posisi right child dari node dengan indeks 2 adalah 2 * 2 + 2 = 6.
+Formula umum untuk menghitung indeks left child dan right child dalam binary tree array adalah:
+Left child: 2 * index + 1
+Right child: 2 * index + 2
+5. Apa kegunaan statement int idxLast = 6 pada praktikum 2 percobaan nomor 4?
+untuk menginisialisasi nilai atribut idxlast
+
 
 Tugas
 1.  Buat method di dalam class BinaryTree yang akan menambahkan node dengan cara 
