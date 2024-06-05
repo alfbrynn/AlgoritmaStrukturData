@@ -46,11 +46,9 @@ public class Graph_19 {
     }
 
     public void removeEdge(int asal, int tujuan) throws Exception{
-        // System.out.println("ngasal");
         System.out.println(vertex);
         list[asal].remove(tujuan);
         for(int i = 0; i < vertex; i++){
-            // System.out.println("benar");
             if (i == tujuan) {
             }
         }
@@ -64,10 +62,9 @@ public class Graph_19 {
     }
 
     public void printGraph() throws Exception{
-        // System.out.println("emosi");
         for(int i=0; i<vertex; i++){
             if (list[i].size() > 0) {
-                System.out.println("Gedung " + (char) ('A' + i) + " terhubung dengan ");
+                System.out.print("Gedung " + (char) ('A' + i) + " terhubung dengan ");
                 for (int j = 0; j < list[i].size(); j++){
                     System.out.print((char) ('A' +list[i].get(j)) + " (" +list[i].getJarak(j) + " m), ");
                 }
