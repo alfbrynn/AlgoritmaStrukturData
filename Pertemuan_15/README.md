@@ -57,8 +57,8 @@ Sebab pemanggilan method addFirst() pada method addEdge pada class graph, sebaga
    - Jika node terhubung ditemukan, method akan menghubungkan node baru dengan node terhubung pada list[] bertipe DoubleLinkedList.
    - Jika node terhubung tidak ditemukan, method akan menambahkan node baru pada list[] bertipe DoubleLinkedList.
 
--5. Modifikasi kode program sehingga dapat dilakukan pengecekan apakah terdapat jalur antara suatu node dengan node lainnya, seperti contoh berikut (Anda dapat memanfaatkan Scanner). <br>
--```
+5. Modifikasi kode program sehingga dapat dilakukan pengecekan apakah terdapat jalur antara suatu node dengan node lainnya, seperti contoh berikut (Anda dapat memanfaatkan Scanner). <br>
+```
 -Masukkan gedung asal: 2
 -Masukkan gedung tujuan: 3
 -Gedung C dan D bertetangga 
@@ -66,45 +66,13 @@ Sebab pemanggilan method addFirst() pada method addEdge pada class graph, sebaga
 -Masukkan gedung asal: 2
 -Masukka gedung tujuan: 5
 -Gedung C dan F tidak bertetangga
--```
-  public boolean isConnected(int asal, int tujuan) {
-    boolean isConnected = false;
-    
-    // mencari node dengan NIM yang sama dengan parameter asal
-    Node node = findNode(asal);
-    if (node != null) {
-      // mencari node terhubung pada list[] bertipe DoubleLinkedList
-      Node nodeTerhubung = node.next;
-      while (nodeTerhubung != null) {
-        if (nodeTerhubung.NIM == tujuan) {
-          isConnected = true; // jika node terhubung ditemukan, maka gedung bertetangga
-          break;
-        }
-        nodeTerhubung = nodeTerhubung.next;
-      }
-    }
-    
-    return isConnected;
-  }
-  
-  public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    
-    System.out.print("Masukkan gedung asal: ");
-    int asal = sc.nextInt();
-    
-    System.out.print("Masukkan gedung tujuan: ");
-    int tujuan = sc.nextInt();
-    
-    Graph graph = new Graph();
-    
-    if (graph.isConnected(asal, tujuan)) {
-      System.out.println("Gedung " + asal + " dan " + tujuan + " bertetangga");
-    } else {
-      System.out.println("Gedung " + asal + " dan " + tujuan + " tidak bertetangga");
-    }
-  }
-
+```
+Pada pertanyaan ini, modifikasi pada class graph dan class main
+clas graph <br>
+pertama menambahkan inisialisasi String pada class Graph_19 setelah itu menambahkan method getBuildingName, method isConnected, method getBuildingName
+<img  src="image\Pertanyaan 5 p1.png" alt="Class Graph"/>
+class main <br>
+<img src="image\Pertanyaan 5 p1 main.png" alt="Class Main"/>
 
 ## Percobaan 2
 
