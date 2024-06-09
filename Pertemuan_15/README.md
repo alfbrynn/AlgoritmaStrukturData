@@ -18,65 +18,109 @@ Teknologi Informasi
 
 </div>
 
-Percobaan 1
-class node
-<img src="image\node.png" alt="Example Image"/>
-class double linked list
-<img src="image\double linked list percobaan 1.png" alt="Example Image"/>
-class graph
-<img src="image\graph percobaan 1.png" alt="Example Image"/>
-class graph matriks
-<img src="image\graph matriks.png" alt="Example Image"/>
-class main
-<img src="image\graph main.png" alt="Example Image"/>
+## Percobaan 1
+Deskripsi
+### Class
+Class Node
+<img src="image\node p1.png" alt="Example Image"/>
 
+Class double linked list
+<img src="image\double linked list p1.png" alt="Example Image"/>
 
-package Pertemuan_15;
+Class graph
+<img src="image\graph p1.png" alt="Example Image"/>
 
-/**
- * GraphMain_19
- */
-public class GraphMain_19 {
+Class main Percobaan 1
+<img src="image\graph main p1.png" alt="Example Image"/>
 
-    public static void main(String[] args) throws Exception {
-        Graph_19 gedung = new Graph_19(6);
-        gedung.addEdge(0, 1, 50);
-        gedung.addEdge(0, 2, 100);
-        gedung.addEdge(1, 3, 70);
-        gedung.addEdge(2, 3, 40);
-        gedung.addEdge(3, 4, 60);
-        gedung.addEdge(4, 5, 80);
-        gedung.degree(0);
-        gedung.printGraph();
+### output
+<img src="image\output p1.png" alt="Output percobaan 1"/>
 
-        gedung.removeEdge(1, 3);
-        gedung.printGraph();
+### Pertanyaan
+1.  Perbaiki kode program Anda apabila terdapat error atau hasil kompilasi kode tidak sesuai!
+2.  Pada class Graph, terdapat atribut list[] bertipe DoubleLinkedList. Sebutkan tujuan pembuatan 
+variabel tersebut! <br>
+Variabel list[] bertipe DoubleLinkedList digunakan untuk menyimpan list node yang berisi informasi tentang node-node yang terhubung pada graph.
+
+3. elaskan alur kerja dari method removeEdge! <br> 
+Alur kerja method removeEdge pada class graph sebagai berikut:
+   - Method removeEdge akan mencari node dengan NIM yang sama dengan parameter NIM pada method removeEdge.
+   - Jika node ditemukan, method akan mencari node terhubung pada list[] bertipe DoubleLinkedList.
+   - Jika node terhubung ditemukan, method akan menghapus node terhubung pada list[] bertipe DoubleLinkedList.
+   - Jika node terhubung tidak ditemukan, method akan mencetak pesan "Node not found!".
+
+4.  Apakah alasan pemanggilan method addFirst() untuk menambahkan data, bukan method add jenis lain saat digunakan pada method addEdge pada class Graph? <br>
+Sebab pemanggilan method addFirst() pada method addEdge pada class graph, sebagai berikut:
+   - Method addEdge pada class graph digunakan untuk menambahkan node baru pada graph.
+   - Sebagai awal, method addEdge akan mencari node dengan NIM yang sama dengan node yang ingin ditambahkan.
+   - Jika node ditemukan, method akan mencari node terhubung pada list[] bertipe DoubleLinkedList.
+   - Jika node terhubung ditemukan, method akan menghubungkan node baru dengan node terhubung pada list[] bertipe DoubleLinkedList.
+   - Jika node terhubung tidak ditemukan, method akan menambahkan node baru pada list[] bertipe DoubleLinkedList.
+
+-5. Modifikasi kode program sehingga dapat dilakukan pengecekan apakah terdapat jalur antara suatu node dengan node lainnya, seperti contoh berikut (Anda dapat memanfaatkan Scanner). <br>
+-```
+-Masukkan gedung asal: 2
+-Masukkan gedung tujuan: 3
+-Gedung C dan D bertetangga 
+-
+-Masukkan gedung asal: 2
+-Masukka gedung tujuan: 5
+-Gedung C dan F tidak bertetangga
+-```
+  public boolean isConnected(int asal, int tujuan) {
+    boolean isConnected = false;
+    
+    // mencari node dengan NIM yang sama dengan parameter asal
+    Node node = findNode(asal);
+    if (node != null) {
+      // mencari node terhubung pada list[] bertipe DoubleLinkedList
+      Node nodeTerhubung = node.next;
+      while (nodeTerhubung != null) {
+        if (nodeTerhubung.NIM == tujuan) {
+          isConnected = true; // jika node terhubung ditemukan, maka gedung bertetangga
+          break;
+        }
+        nodeTerhubung = nodeTerhubung.next;
+      }
     }
-}
-```
-contoh output
-```
-InDegree dari Gedung A: 0
-OutDegree dari Gedung A: 2
-Degree dari Gedung A: 2
-Gedung A terhubung dengan
-C (100 m), B (50 m), 
-Gedung B terhubung dengan
-D (70 m),
-Gedung C terhubung dengan
-D (40 m),
-Gedung D terhubung dengan
-E (60 m),
-Gedung E terhubung dengan
-F (80 m),
+    
+    return isConnected;
+  }
+  
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    
+    System.out.print("Masukkan gedung asal: ");
+    int asal = sc.nextInt();
+    
+    System.out.print("Masukkan gedung tujuan: ");
+    int tujuan = sc.nextInt();
+    
+    Graph graph = new Graph();
+    
+    if (graph.isConnected(asal, tujuan)) {
+      System.out.println("Gedung " + asal + " dan " + tujuan + " bertetangga");
+    } else {
+      System.out.println("Gedung " + asal + " dan " + tujuan + " tidak bertetangga");
+    }
+  }
 
-6
-Gedung A terhubung dengan 
-C (100 m), B (50 m),
-Gedung C terhubung dengan
-D (40 m),
-Gedung D terhubung dengan
-E (60 m),
-Gedung E terhubung dengan
-F (80 m),
-```
+
+## Percobaan 2
+
+### class 
+Class graph matriks
+<img src="image\graph matriks p2.png" alt="Example Image"/>
+
+Class main Percobaan 2
+<img src="image\graph main p2.png" alt="Example Image"/>
+
+### Output 
+<img src="image\output p2.png" alt="Output percobaan 2"/>
+
+### Pertanyaan
+1. Perbaiki kode program Anda apabila terdapat error atau hasil kompilasi kode tidak sesuai!
+2. Apa jenis graph yang digunakan pada Percobaan 2?
+3. Apa maksud dari dua baris kode berikut?
+4. Modifikasi kode program sehingga terdapat method untuk menghitung degree, termasuk 
+inDegree dan outDegree!
